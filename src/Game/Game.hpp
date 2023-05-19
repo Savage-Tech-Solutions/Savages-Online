@@ -8,12 +8,16 @@
 #ifndef Game_hpp
 #define Game_hpp
 
-#include "raylib.h"
+//System Libraries
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-// Function Prototypes
+// User Libraries
+// N/A
+
+// External Libraries
+#include "raylib.h"
 
 class Game {
     public:
@@ -47,6 +51,5 @@ class Game {
         string license;
         string contributors;
 };
-
 
 #endif /* Game_hpp */

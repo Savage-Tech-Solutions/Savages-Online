@@ -8,7 +8,7 @@
 #ifndef main_hpp
 #define main_hpp
 
-#include "raylib.h"
+// System Libraries
 #include <stdio.h>
 #include <string>
 #include <iostream>
@@ -20,6 +20,13 @@
 #include <iterator>
 #include <sstream>
 #include <unistd.h>
+
+// User Libraries
+// N/A
+
+// External Libraries
+#include "raylib.h"
+
 using namespace std;
 
 #endif /* main_hpp */
