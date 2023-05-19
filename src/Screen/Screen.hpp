@@ -34,20 +34,6 @@ class Screen {
         * function is expected to be defined in the
         * derived class.
         *************************************************/
-        virtual void DrawFrontScreen() = 0;
-
-        /*************************************************
-        * Pure Virtual DrawScreen() class function. This
-        * function is expected to be defined in the
-        * derived class.
-        *************************************************/
-        virtual void DrawBackScreen() = 0;
-
-        /*************************************************
-        * Pure Virtual DrawScreen() class function. This
-        * function is expected to be defined in the
-        * derived class.
-        *************************************************/
         virtual void DrawScreen() = 0;
 
     protected:
@@ -138,6 +124,26 @@ class Screen {
         Font userInputFontStyle; // Font used for user input in derived Screen classes.
 
     private:
+        /*************************************************
+        * Pure Virtual DrawScreen() class function. This
+        * function is expected to be defined in the
+        * derived class. - This function will draw the
+        * front layout with all the assets,etc. Such as 
+        * trees, buildings, bushes, etc.
+        * ------ONLY GETS USED FROM WORLD CLASS...-------
+        *************************************************/
+        virtual void DrawFrontScreen() = 0;
+
+        /*************************************************
+        * Pure Virtual DrawScreen() class function. This
+        * function is expected to be defined in the
+        * derived class. - This function will draw the
+        * back layout/ground layer. - Such as grass, dirt,
+        * or any other ground texture. (Player doesn't walk)
+        * over trees, buildings, etc.
+        * ------ONLY GETS USED FROM WORLD CLASS...-------
+        *************************************************/
+        virtual void DrawBackScreen() = 0;
         int x;                   // Variable holds 'x' coordinate for draw location.
         int y;                   // Variable holds 'y' coordinate for draw location.
         int width;               // Variable holds the 'width' of the Screen object.
