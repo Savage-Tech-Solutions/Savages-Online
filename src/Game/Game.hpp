@@ -1,29 +1,44 @@
+/* ************************************************************
+ * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROJECT     : Savages-Online
+ * VERSION     : 0.0.1
+ * DESCRIPTION : // TODO:: Finish Documentation
+ **************************************************************/
+
 #ifndef Game_hpp
 #define Game_hpp
 
-#include "Main/Main.hpp"
-
+#include "raylib.h"
+#include <iostream>
+#include <string.h>
 using namespace std;
 
 // Function Prototypes
 
-class Game : protected Screen {
+class Game {
     public:
-        Screen();
-        ~Screen();
-        void run();
-        void printVersion();
-        void printHelp();
-        void printUsersOnline();
-        void printLicense();
-        void printContributors();
+        Game();                   // Default Constructor
+        ~Game();                  // Destructor
+        void run();               // Will run the game
+        void printVersion();      // Shows the version
+        void printHelp();         // Gives help
+        void printUsersOnline();  // Prints users online
+        void printLicense();      // Prints the license
+        void printContributors(); // Shows the contributors
 
-    protected:
-        void setVersion(string version) const;
+        // Setters
+        void setVersion(string version);
         void setHelp(string help);
         void setUsersOnline(string usersOnline);
         void setLicense(string license);
         void setContributors(string contributors);
+
+        // Getters
+        string getVersion() const;
+        string getHelp() const;
+        string getUsersOnline() const;
+        string getLicense() const;
+        string getContributors() const;
 
     private:
         string version;

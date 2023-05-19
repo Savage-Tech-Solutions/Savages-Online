@@ -1,5 +1,11 @@
+/* ************************************************************
+ * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROJECT     : Savages-Online
+ * VERSION     : 0.0.1
+ * DESCRIPTION : // TODO:: Finish Documentation
+ **************************************************************/
 
-#include "Game/Game.hpp"
+#include "Game.hpp"
 
 /*************************************************
  * Default Constructor
@@ -47,7 +53,7 @@ void Game::printContributors() {
  * Mutator Functions
  *************************************************/
 
-void Game::setVersion(string version) const {
+void Game::setVersion(string version) {
     this->version = version;
 }
 

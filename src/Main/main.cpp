@@ -1,13 +1,12 @@
+/* ************************************************************
+ * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROJECT     : Savages-Online
+ * VERSION     : 0.0.1
+ * DESCRIPTION : // TODO:: Finish Documentation
+ **************************************************************/
 
-#include "Main/main.hpp"
-#include "Game/Game.hpp"
-
-int main(int argc, char** argv) {
-    Game game;
-    game.run();
-    return 0;
-}
-
+#include "main.hpp"
+#include "../Game/Game.hpp"
 
 int main(int argc, char* argv[])
 {

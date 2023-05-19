@@ -1,14 +1,11 @@
 /* ************************************************************
- * PROGRAMMER  : Bryce Berwald
+ * PROGRAMMER  : // TODO:// Finish Documentation
  * PROJECT     : Savages-Online
  * VERSION     : 0.0.1
- * DESCRIPTION : A multiplayer RPG game created with C++ and
- * a gaming library called "raylib". This game is being built to
- * help my overall understanding of the C++ programming language,
- * and for my own fun along the way.
+ * DESCRIPTION : // TODO:: Finish Documentation
  **************************************************************/
 
-#include "Screen/Screen.hpp"
+#include "Screen.hpp"
 
 /*************************************************************
  * This is the default constructor function for the Screen

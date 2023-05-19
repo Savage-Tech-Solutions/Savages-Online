@@ -1,18 +1,16 @@
 /* ************************************************************
- * PROGRAMMER  : Bryce Berwald
+ * PROGRAMMER  : // TODO:// Finish Documentation
  * PROJECT     : Savages-Online
  * VERSION     : 0.0.1
- * DESCRIPTION : A multiplayer RPG game created with C++ and
- * a gaming library called "raylib". This game is being built to
- * help my overall understanding of the C++ programming language,
- * and for my own fun along the way.
+ * DESCRIPTION : // TODO:: Finish Documentation
  **************************************************************/
 
-#ifndef SCREEN_H
-#define SCREEN_H
+#ifndef Screen_hpp
+#define Screen_hpp
 
-#include "../include/raylib/raylib.h"
-#include "Main/main.hpp"
+#include "raylib.h"
+#include "../Main/main.hpp"
+using namespace std;
 
 /*************************************************
 * Class Screen
@@ -36,7 +34,21 @@ class Screen {
         * function is expected to be defined in the
         * derived class.
         *************************************************/
-        //virtual DrawScreen() = 0;
+        virtual void DrawFrontScreen() = 0;
+
+        /*************************************************
+        * Pure Virtual DrawScreen() class function. This
+        * function is expected to be defined in the
+        * derived class.
+        *************************************************/
+        virtual void DrawBackScreen() = 0;
+
+        /*************************************************
+        * Pure Virtual DrawScreen() class function. This
+        * function is expected to be defined in the
+        * derived class.
+        *************************************************/
+        virtual void DrawScreen() = 0;
 
     protected:
         /*************************************************
@@ -133,4 +145,4 @@ class Screen {
         Texture2D background;    // Variable holds the 'image' of the Screen object.
 };
 
-#endif
+#endif /* Screen_hpp */
