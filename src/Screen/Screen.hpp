@@ -8,8 +8,15 @@
 #ifndef Screen_hpp
 #define Screen_hpp
 
-#include "raylib.h"
+// System Libraries
+// N/A
+
+// User Libraries
 #include "../Main/main.hpp"
+
+// External Libraries
+#include "raylib.h"
+
 using namespace std;
 
 /*************************************************
