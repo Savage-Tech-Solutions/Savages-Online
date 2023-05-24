@@ -21,32 +21,29 @@ Game::Game() {
 /*************************************************
  * Destructor Constructor
  ************************************************/ 
-Game::~Game() {
-    // Nothing to do here yet
-}
 
 void Game::run() {
     DrawText("Savages-Online Client GUI", 575, 300, 20, WHITE);
 }
 
 void Game::printVersion() {
-    cout << "Version: " << version << endl;
+    std::cout << "Version: " << version << std::endl;
 }
 
 void Game::printHelp() {
-    cout << "Help: " << help << endl;
+    std::cout << "Help: " << help << std::endl;
 }
 
 void Game::printUsersOnline() {
-    cout << "Users Online: " << usersOnline << endl;
+    std::cout << "Users Online: " << usersOnline << std::endl;
 }
 
 void Game::printLicense() {
-    cout << "License: " << license << endl;
+    std::cout << "License: " << license << std::endl;
 }
 
 void Game::printContributors() {
-    cout << "Contributors: " << contributors << endl;
+    std::cout << "Contributors: " << contributors << std::endl;
 }
 
 /*************************************************

@@ -10,19 +10,18 @@
 
 //System Libraries
 #include <iostream>
-#include <string.h>
-using namespace std;
+#include <string>
 
 // User Libraries
 // N/A
 
 // External Libraries
 #include "raylib.h"
-
+using std::string;
 class Game {
+    
     public:
         Game();                   // Default Constructor
-        ~Game();                  // Destructor
         void run();               // Will run the game
         void printVersion();      // Shows the version
         void printHelp();         // Gives help
