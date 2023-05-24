@@ -26,7 +26,4 @@
 
 // External Libraries
 #include "raylib.h"
-
-using namespace std;
-
 #endif /* main_hpp */

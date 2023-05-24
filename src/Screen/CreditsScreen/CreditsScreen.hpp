@@ -4,7 +4,6 @@
 //System Libraries
 #include <iostream>
 #include <string>
-using namespace std;
 
 // User Libraries
 #include "../Screen.hpp"
@@ -14,10 +13,10 @@ using namespace std;
 #include "raylib.h"
 
 struct TeamMembers {
-    string name;
-    string role;
-    string email;
-    string github;
+    std::string name;
+    std::string role;
+    std::string email;
+    std::string github;
     TeamMembers *next;
 };
 

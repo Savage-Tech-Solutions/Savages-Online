@@ -17,8 +17,6 @@
 // External Libraries
 #include "raylib.h"
 
-using namespace std;
-
 /*************************************************
 * Class Screen
 *************************************************/

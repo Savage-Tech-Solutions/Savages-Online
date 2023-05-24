@@ -7,7 +7,8 @@
 
 #include "main.hpp"
 #include "../Game/Game.hpp"
-
+#include <cstring>
+using std::strrchr;
 int main(int argc, char* argv[])
 {
     // Get the current working directory
