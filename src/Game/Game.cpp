@@ -7,89 +7,187 @@
 
 #include "Game.hpp"
 
-/*************************************************
- * Default Constructor
- ************************************************/ 
+     /*************************************************
+     * Default Constructor
+     ************************************************/
 Game::Game() {
-    setVersion("0.0.1"); // TODO: Change this to a version number
-    setHelp("help"); // TODO: Change this to a vector of help commands
-    setUsersOnline("usersOnline");  // TODO: Change this to a vector of users
-    setLicense("license"); // TODO: Change this to a license
-    setContributors("contributors"); // TODO: Change this to a vector of contributors
-}
+    version = ("0.0.1");
+    help = "Type $help for help answering questions...";
+    usersOnline = 0;
+    license = "GNU GENERAL PUBLIC LICENSE";
+
+    Contributor temp;
+    temp.name = "Bryce";
+    temp.discordUsername = "bberwald0#....";
+    collaboratorArray->push_back(temp);
+    
+    temp.name = "Julien";
+    temp.discordUsername = "Julien#8652";
+    collaboratorArray->push_back(temp);
+
+    temp.name = "flaschenholz";
+    temp.discordUsername = "flaschenholz#1893";
+    collaboratorArray->push_back(temp);
+
+    temp.name = "Bronson";
+    temp.discordUsername = "Bronson#5292";
+    collaboratorArray->push_back(temp);
+
+    temp.name = "Andrew";
+    temp.discordUsername = "miranda#4988";
+    collaboratorArray->push_back(temp);
+
+    temp.name = "NudistRahip";
+    temp.discordUsername = "NudistRahip#3651";
+    collaboratorArray->push_back(temp);
+
+    temp.name = "Hoya";
+    temp.discordUsername = "hoya#3909";
+    collaboratorArray->push_back(temp);
+};
 
 /*************************************************
  * Destructor Constructor
  ************************************************/ 
-
-void Game::run() {
-    DrawText("Savages-Online Client GUI", 575, 300, 20, WHITE);
+Game::~Game(){
+    // n/a
 }
 
+void Game::run() {
+    DrawText("Savages-Online Client GUI", 575, 300, 20, WHITE); // Testing
+}
+
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
 void Game::printVersion() {
     std::cout << "Version: " << version << std::endl;
 }
 
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
 void Game::printHelp() {
     std::cout << "Help: " << help << std::endl;
 }
 
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
 void Game::printUsersOnline() {
     std::cout << "Users Online: " << usersOnline << std::endl;
 }
 
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
 void Game::printLicense() {
     std::cout << "License: " << license << std::endl;
 }
 
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
 void Game::printContributors() {
-    std::cout << "Contributors: " << contributors << std::endl;
+    std::cout << "All Contributors:\n";
+    std::cout << "--------------------------------\n";
+    for(int i = 0; i <= collaboratorArray->size() - 1; i++) {
+        std::cout << collaboratorArray->at(i).name << " || Discord Username: " << collaboratorArray->at(i).discordUsername << std::endl;
+    }
+    return;
 }
 
-/*************************************************
- * Mutator Functions
- *************************************************/
 
+
+/************************************************/
+/*************************************************
+ *             Mutator Functions                 *
+ *************************************************/
+/*************************************************/
+
+
+
+/************************************************************
+* setVersion() - Sets the version of the game
+************************************************************/
 void Game::setVersion(string version) {
     this->version = version;
 }
 
+/************************************************************
+* setHelp() - Sets the help string with the help commands
+************************************************************/
 void Game::setHelp(string help) {
     this->help = help;
 }
 
+/************************************************************
+* 
+************************************************************/
 void Game::setUsersOnline(string usersOnline) {
-    this->usersOnline = usersOnline;
+    this->usersOnline = getUsersOnline(); // Eventually this will be a vector of users being appended during game play.
 }
 
+/************************************************************
+* 
+************************************************************/
 void Game::setLicense(string license) {
     this->license = license;
 }
 
-void Game::setContributors(string contributors) {
-    this->contributors = contributors;
+/************************************************************
+* 
+************************************************************/
+void Game::setContributors(Contributor newContributor) {
+     collaboratorArray->push_back(newContributor);
 }
 
-/*************************************************
- * Accessor Functions
- *************************************************/
 
-string Game::getVersion() const {
+/************************************************/
+/*************************************************
+ *              Accessor Functions               *
+ *************************************************/
+ /************************************************/
+
+
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
+string Game::getVersion(){
     return version;
 }
 
-string Game::getHelp() const {
-    return help;
+/************************************************************
+* getHelp() - Returns the help string
+************************************************************/
+string Game::getHelp() {
+    return help; // TODO: Change this to a array/vector of help commands.
 }
 
-string Game::getUsersOnline() const {
-    return usersOnline;
+/************************************************************
+* getUsersOnline() - Returns the number of users online
+************************************************************/
+int Game::getUsersOnline(){
+    if(getUsersOnline() == 0) {
+        std::cout << "No users online." << std::endl;
+        return 0;
+    } else {
+        std::cout << "Users Online: " << usersOnline << std::endl;
+        return 1;
+    }
 }
 
-string Game::getLicense() const {
-    return license;
+/************************************************************
+* getLicense() - Returns the license string
+************************************************************/
+string Game::getLicense() {
+    return getLicense();
 }
 
-string Game::getContributors() const {
-    return contributors;
+/************************************************************
+* getContributors() - Returns the contributors array
+************************************************************/
+int Game::getNumberOfContributors() {
+    std::cout << collaboratorArray->size() << std::endl; // Debugging
+    return collaboratorArray->size();
 }

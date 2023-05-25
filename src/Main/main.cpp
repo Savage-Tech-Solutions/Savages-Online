@@ -6,9 +6,7 @@
  **************************************************************/
 
 #include "main.hpp"
-#include "../Game/Game.hpp"
-#include <cstring>
-using std::strrchr;
+
 int main(int argc, char* argv[])
 {
     // Get the current working directory
@@ -35,12 +33,27 @@ int main(int argc, char* argv[])
 
     InitWindow(1280, 700, "Savages-Online | Version 0.0.1");
 
+    /**************************************************
+     * Object/Class Initialization
+    ***************************************************/
+    Game savages;
+
+    /**************************************************
+     * Variable Initialization
+     ***************************************************/
+    bool showOnce = true;
+
     SetTargetFPS(60);
 
     // Main game loop
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(GRAY);
+        if(showOnce){
+            savages.printContributors();
+            showOnce = false;
+        }
+        
         EndDrawing();
     }
 

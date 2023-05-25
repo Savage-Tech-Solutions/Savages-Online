@@ -20,9 +20,12 @@
 #include <iterator>
 #include <sstream>
 #include <unistd.h>
+#include <cstring>
+using std::strrchr;
 
 // User Libraries
-// N/A
+#include "../Game/Game.hpp"
+
 
 // External Libraries
 #include "raylib.h"
