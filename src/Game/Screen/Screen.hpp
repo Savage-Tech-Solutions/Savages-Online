@@ -15,7 +15,7 @@
 #include "../../Main/main.hpp"
 
 // External Libraries
-// ---included in main.hpp---
+#include <raylib.h>
 
 /*************************************************
 * Class Screen

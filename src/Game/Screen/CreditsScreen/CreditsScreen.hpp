@@ -16,7 +16,7 @@
 #include "../Screen.hpp"
 
 // External Libraries
-// N/A
+// ---included in Screen.hpp---
 
 struct TeamMembers {
     std::string name;

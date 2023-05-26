@@ -10,8 +10,7 @@
 /*******************************************************
  * Default Constructor
 *******************************************************/
-InGameScreen::InGameScreen() {
-    
+InGameScreen::InGameScreen() {    
 
 };
 
