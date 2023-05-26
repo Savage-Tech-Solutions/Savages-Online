@@ -12,7 +12,7 @@
 // N/A
 
 // User Libraries
-#include "../../Main/main.hpp"
+//#include "../../main.hpp"
 
 // External Libraries
 #include <raylib.h>
@@ -44,14 +44,15 @@ class Screen {
         * function is expected to be defined in the
         * derived class.
         *************************************************/
-    virtual void DrawFrontMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp ONLY!!!
+        // virtual void DrawFrontMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp ONLY!!!
 
         /*************************************************
         * Pure Virtual DrawScreen() class function. This
         * function is expected to be defined in the
         * derived class.
         ************************************************/
-       virtual void DrawBackMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp
+        // virtual void DrawBackMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp
+
     protected:
         /*************************************************
         * This is a protected function within the Screen

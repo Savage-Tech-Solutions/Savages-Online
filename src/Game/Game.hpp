@@ -14,15 +14,18 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+using std::string;
+using std::vector;
 
 // User Libraries
-#include "Screen/MainMenuScreen/MainMenuScreen.hpp"
 #include "Screen/Screen.hpp"
+#include "Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "Screen/InGameScreen/InGameScreen.hpp"
 
 // External Libraries
 #include <raylib.h>
 #include <nlohmann/json.hpp>
+using json = nlohmann::json;
 
 /*********************************************/
 /*            Contributor Struct             */
@@ -80,6 +83,8 @@ class Game {
         int usersOnline;
         vector<Contributor> collaboratorArray[MAX_CONTRIBUTORS];
         GUI_STATE guiState;
+        MainMenuScreen *mainMenuScreen;
+        InGameScreen *inGameScreen;
 };
 
 #endif /* Game_hpp */

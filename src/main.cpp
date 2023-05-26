@@ -49,6 +49,9 @@ int main(int argc, char* argv[])
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(GRAY);
+
+        savages.run();
+        
         if(showOnce){
             savages.printContributors();
             showOnce = false;

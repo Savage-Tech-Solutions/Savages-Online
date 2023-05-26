@@ -22,7 +22,7 @@ if (NOT raylib_FOUND)
 		add_subdirectory(${raylib_SOURCE_DIR} ${raylib_BINARY_DIR})
 	endif()
 endif()
-add_executable(${PROJECT_NAME} "src/Game/Game.cpp" "src/Main/main.cpp")
+add_executable(${PROJECT_NAME} "src/Game/Game.cpp" "src/main.cpp")
 
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)

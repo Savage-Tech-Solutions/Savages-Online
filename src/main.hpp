@@ -9,23 +9,18 @@
 #define main_hpp
 
 // System Libraries
-#include <stdio.h>
-#include <string>
-#include <iostream>
-#include <fstream>
-#include <iostream>
-#include <istream>
-#include <ostream>
-#include <iomanip>
-#include <iterator>
-#include <sstream>
 #include <unistd.h>
+#include <iostream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 #include <cstring>
-using std::strrchr;
+using std::strchr;
 
 // User Libraries
-#include "../Game/Game.hpp"
-
+#include "Game/Game.hpp"
+#include "Game/Screen/Screen.hpp"
+#include "Game/Screen/MainMenuScreen/MainMenuScreen.hpp"
 
 // External Libraries
 #include "raylib.h"

@@ -9,8 +9,7 @@
 #define LoginScreen_hpp
 
 // System Libraries
-#include <iostream>
-#include <string>
+// N/A
 
 // User Libraries
 #include "../Screen.hpp"

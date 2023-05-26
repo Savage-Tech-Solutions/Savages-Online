@@ -47,6 +47,10 @@ Game::Game() {
     collaboratorArray->push_back(temp);
 
     this->guiState = MAIN_MENU;
+
+    // this->mainMenuScreen = new MainMenuScreen();
+    // this->inGameScreen = new InGameScreen();
+
 };
 
 /*************************************************
@@ -57,7 +61,17 @@ Game::~Game(){
 }
 
 void Game::run() {
-    DrawText("Savages-Online Client GUI", 575, 300, 20, WHITE); // Testing
+    // if (guiState == MAIN_MENU) {
+    //     this->mainMenuScreen->DrawScreen();
+    //     std::cout << "Main Menu...\n";
+    // } else if (guiState == PLAYING_GAME) {
+    //     this->inGameScreen->DrawScreen();
+    //     std::cout << "Playing Game...\n";
+    // } else if (guiState == EXITING_GAME) {
+    //     std::cout << "Exiting Game...\n";
+    // } else {
+    //     std::cout << "Error: GUI_STATE is not set to a valid state.\n";
+    // }
 }
 
 /************************************************************
