@@ -1,16 +1,22 @@
+/*************************************************************
+ * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROJECT     : Savages-Online
+ * VERSION     : 0.0.1
+ * DESCRIPTION : // TODO:: Finish Documentation
+ **************************************************************/
+
 #ifndef CreditsScreen_hpp
 #define CreditsScreen_hpp
 
-//System Libraries
+// System Libraries
 #include <iostream>
 #include <string>
 
 // User Libraries
 #include "../Screen.hpp"
-//#include "../../ReusableComponents/Button/Button.hpp"
 
 // External Libraries
-#include "raylib.h"
+// ---included in Screen.hpp---
 
 struct TeamMembers {
     std::string name;
@@ -25,7 +31,9 @@ class CreditsScreen : protected Screen {
 public:
     CreditsScreen();
     ~CreditsScreen();
-    void DrawScreen();
+    void DrawScreen(); // Implementing 1 of 3 virtual functions from Screen.hpp
+
+    // CreditsScreen Function Prototypes
     void CreditsLogic();
     void CreditsDisplay();
 
@@ -34,7 +42,6 @@ public:
 
     private:
         TeamMembers *head; // TODO: Create a linked list of team members
-     // Button buttons;
 
 };
 

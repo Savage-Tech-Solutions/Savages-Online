@@ -13,23 +13,34 @@
 //System Libraries
 #include <iostream>
 #include <string>
-#include <array>
 #include <vector>
 using namespace std;
 
 // User Libraries
-// N/A --Soon to be added--
+#include "Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "Screen/Screen.hpp"
 
 // External Libraries
 #include <raylib.h>
 #include <nlohmann/json.hpp>
 
-
+/*********************************************/
+/*            Contributor Struct             */
+/*********************************************/
 struct Contributor {
     string name;
     string discordUsername;
-};          
+};
 
+enum GUI_STATE {
+    MAIN_MENU,      // 0
+    PLAYING_GAME,   // 1
+    EXITING_GAME    // 2
+};
+
+/********************************************
+ * Game Class
+ *******************************************/
 class Game {
     
     public:
@@ -44,8 +55,8 @@ class Game {
         
 
         // NEW - ADDED:/ 05/24/23 @ 3:45am
-        bool StartPlayingGame(/*   Parameters need to be added     */);  // TODO:  Needs to be implemented...
-        bool StopPlayingGame(/*   Parameters need to be added     */);   // TODO:  Needs to be implemented...
+        int StartPlayingGame(GUI_STATE gui);
+        int StopPlayingGame(GUI_STATE gui);
 
 
         // Setters
@@ -68,6 +79,7 @@ class Game {
         string help;
         int usersOnline;
         vector<Contributor> collaboratorArray[MAX_CONTRIBUTORS];
+        GUI_STATE guiState;
 };
 
 #endif /* Game_hpp */

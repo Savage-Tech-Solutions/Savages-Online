@@ -7,18 +7,19 @@
 
 #include "Game.hpp"
 
-     /*************************************************
-     * Default Constructor
-     ************************************************/
+/*************************************************
+* Default Constructor
+*************************************************/
 Game::Game() {
-    version = ("0.0.1");
-    help = "Type $help for help answering questions...";
-    usersOnline = 0;
-    license = "GNU GENERAL PUBLIC LICENSE";
+    this->version = ("0.0.1");
+    this->help = "Type $help for help answering questions...";
+    this->usersOnline = 0;
+    this->license = "GNU GENERAL PUBLIC LICENSE";
 
-    Contributor temp;
+    Contributor temp;  // Temp variable to push new Contributors into vector.
+
     temp.name = "Bryce";
-    temp.discordUsername = "bberwald0#....";
+    temp.discordUsername = "bberwald0#7777";
     collaboratorArray->push_back(temp);
     
     temp.name = "Julien";
@@ -44,6 +45,8 @@ Game::Game() {
     temp.name = "Hoya";
     temp.discordUsername = "hoya#3909";
     collaboratorArray->push_back(temp);
+
+    this->guiState = MAIN_MENU;
 };
 
 /*************************************************
@@ -95,9 +98,21 @@ void Game::printContributors() {
         std::cout << collaboratorArray->at(i).name << " || Discord Username: " << collaboratorArray->at(i).discordUsername << std::endl;
     }
     return;
-}
+};
 
+/************************************************************
+* TODO: Finish this function
+************************************************************/
+int Game::StartPlayingGame(GUI_STATE gui) {
+    return 1; //TODO: Finish this function
+};
 
+/************************************************************
+* TODO: Finish this function 
+************************************************************/
+int Game::StopPlayingGame(GUI_STATE gui){
+    return 2; //TODO: Finish this function
+};
 
 /************************************************/
 /*************************************************
@@ -122,21 +137,21 @@ void Game::setHelp(string help) {
 }
 
 /************************************************************
-* 
+* TODO: Finish documentation
 ************************************************************/
 void Game::setUsersOnline(string usersOnline) {
     this->usersOnline = getUsersOnline(); // Eventually this will be a vector of users being appended during game play.
 }
 
 /************************************************************
-* 
+* TODO: Finish documentation
 ************************************************************/
 void Game::setLicense(string license) {
     this->license = license;
 }
 
 /************************************************************
-* 
+* TODO: Finish documentation
 ************************************************************/
 void Game::setContributors(Contributor newContributor) {
      collaboratorArray->push_back(newContributor);
@@ -162,7 +177,7 @@ string Game::getVersion(){
 ************************************************************/
 string Game::getHelp() {
     return help; // TODO: Change this to a array/vector of help commands.
-}
+};
 
 /************************************************************
 * getUsersOnline() - Returns the number of users online
@@ -175,14 +190,14 @@ int Game::getUsersOnline(){
         std::cout << "Users Online: " << usersOnline << std::endl;
         return 1;
     }
-}
+};
 
 /************************************************************
 * getLicense() - Returns the license string
 ************************************************************/
 string Game::getLicense() {
     return getLicense();
-}
+};
 
 /************************************************************
 * getContributors() - Returns the contributors array
@@ -190,4 +205,4 @@ string Game::getLicense() {
 int Game::getNumberOfContributors() {
     std::cout << collaboratorArray->size() << std::endl; // Debugging
     return collaboratorArray->size();
-}
+};
