@@ -17,7 +17,11 @@
 using namespace std;
 
 // User Libraries
+#include "Screen/InGameScreen/InGameScreen.hpp"
+#include "Screen/CreditsScreen/CreditsScreen.hpp"
 #include "Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "Screen/LoginScreen/LoginScreen.hpp"
+#include "Screen/RegisterScreen/RegisterScreen.hpp"
 #include "Screen/Screen.hpp"
 
 // External Libraries

@@ -12,7 +12,7 @@
 // N/A
 
 // User Libraries
-#include "../../Main/main.hpp"
+// N/A
 
 // External Libraries
 #include <raylib.h>
@@ -39,27 +39,28 @@ class Screen {
         *************************************************/
         virtual void DrawScreen() = 0; // IMPLEMENTATION is in all classes derived from the Screen.cpp
 
-        /*************************************************
-        * Pure Virtual DrawScreen() class function. This
-        * function is expected to be defined in the
-        * derived class.
-        *************************************************/
-    virtual void DrawFrontMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp ONLY!!!
+    //     /*************************************************
+    //     * Pure Virtual DrawScreen() class function. This
+    //     * function is expected to be defined in the
+    //     * derived class.
+    //     *************************************************/
+    //     virtual void DrawFrontMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp ONLY!!!
+
+    //     /*************************************************
+    //     * Pure Virtual DrawScreen() class function. This
+    //     * function is expected to be defined in the
+    //     * derived class.
+    //     ************************************************/
+    //    virtual void DrawBackMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp
+    protected:
 
         /*************************************************
-        * Pure Virtual DrawScreen() class function. This
-        * function is expected to be defined in the
-        * derived class.
-        ************************************************/
-       virtual void DrawBackMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp
-    protected:
-        /*************************************************
-        * This is a protected function within the Screen
-        * class. This function may get called by the
-        * derived class. This function will set the x
-        * coordinate position which the screen should start
-        * to be drawn from. 
-        *************************************************/
+         * This is a protected function within the Screen
+         * class. This function may get called by the
+         * derived class. This function will set the x
+         * coordinate position which the screen should start
+         * to be drawn from.
+         *************************************************/
         void setDrawPositionX(int x);
 
         /*************************************************
