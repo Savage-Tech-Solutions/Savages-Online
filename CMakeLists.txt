@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(raylib 4.5.0 QUIET)
 find_package(CURL REQUIRED)
 include(FetchContent)
+
 if (NOT raylib_FOUND)
 	FetchContent_Declare(
 		raylib
@@ -18,11 +19,14 @@ if (NOT raylib_FOUND)
 
 		option(CUSTOMIZE_BUILD "" ON)
 		option(SUPPORT_SCREEN_CAPTURE "" OFF)
+		option(SUPPORT_FILEFORMAT_GIF "" ON)
 
 		add_subdirectory(${raylib_SOURCE_DIR} ${raylib_BINARY_DIR})
 	endif()
 endif()
-add_executable(${PROJECT_NAME} "src/Game/Game.cpp" "src/main.cpp")
+file(GLOB_RECURSE CPP_SOURCES src/*.cpp)
+add_compile_options("-DSUPPORT_FILEFORMAT_GIF")
+add_executable(${PROJECT_NAME} ${CPP_SOURCES})
 
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)

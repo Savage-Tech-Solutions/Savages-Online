@@ -18,9 +18,9 @@
 using std::strchr;
 
 // User Libraries
-#include "../Game/Game.hpp"
-#include "../Game/Screen/MainMenuScreen/MainMenuScreen.hpp"
-#include "../Game/Screen/LoadingScreen/LoadingScreen.hpp"
+#include "Game/Game.hpp"
+#include "Game/Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "Game/Screen/LoadingScreen/LoadingScreen.hpp"
 
 // External Libraries
 #include "raylib.h"

@@ -25,7 +25,7 @@ class LoadingScreen : protected Screen {
             protected :
             // N/A
 
-            private : Texture2D backgroundTexture;
+            private : Texture2D backgroundTexture; int anim_counter;
 };
 
 

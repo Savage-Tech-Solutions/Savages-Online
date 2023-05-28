@@ -39,8 +39,9 @@ int main(int argc, char* argv[])
     /**************************************************
      * Object/Class Initialization
     ***************************************************/
-    Game *savages;
-    LoadingScreen *loadingScreen;
+    Game *savages = new Game;
+    LoadingScreen *loadingScreen = new LoadingScreen;
+    loadingScreen->setBackgroundTexture(Texture2D{});
     MainMenuScreen *mainMenuScreen;
 
     /**************************************************
@@ -61,7 +62,7 @@ int main(int argc, char* argv[])
                 loadingScreen->DrawScreen();
                 break;
             case MAIN_MENU_SCREEN:
-                mainMenuScreen->DrawScreen();
+                mainMenuScreen->DrawScreen(); 
                 break;
             default:
                 std::cout << "ERROR: Invalid Game State" << std::endl;

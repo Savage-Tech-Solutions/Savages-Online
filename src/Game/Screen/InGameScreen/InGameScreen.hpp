@@ -1,3 +1,5 @@
+#ifndef INGAME_SCREEN_HPP
+#define INGAME_SCREEN_HPP
 /* ************************************************************
  * PROGRAMMER  : // TODO:// Finish Documentation
  * PROJECT     : Savages-Online
@@ -45,3 +47,4 @@ class InGameScreen : protected Screen {
         // N/A
 
 };
+#endif
