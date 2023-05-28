@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     SetTargetFPS(60);
 
     // Main game loop
-    while(!WindowShouldClose() && isGameRunning) {
+    while(!WindowShouldClose() && isGameRunning){
 
         BeginDrawing();
 
