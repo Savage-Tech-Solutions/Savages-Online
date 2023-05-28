@@ -33,10 +33,15 @@ int main(int argc, char* argv[])
 
     InitWindow(1280, 700, "Savages-Online | Version 0.0.1");
 
+
+    GameStates gameState = LOADING_SCREEN;
+
     /**************************************************
      * Object/Class Initialization
     ***************************************************/
-    Game savages;
+    Game *savages;
+    LoadingScreen *loadingScreen;
+    MainMenuScreen *mainMenuScreen;
 
     /**************************************************
      * Variable Initialization
@@ -48,15 +53,25 @@ int main(int argc, char* argv[])
     // Main game loop
     while(!WindowShouldClose()){
         BeginDrawing();
+
         ClearBackground(GRAY);
 
-        savages.run();
-        
-        if(showOnce){
-            savages.printContributors();
-            showOnce = false;
+        switch(gameState){
+            case LOADING_SCREEN:
+                loadingScreen->DrawScreen();
+                break;
+            case MAIN_MENU_SCREEN:
+                mainMenuScreen->DrawScreen();
+                break;
+            default:
+                std::cout << "ERROR: Invalid Game State" << std::endl;
+                break;
         }
         
+        if(showOnce){
+            savages->printContributors();
+            showOnce = false;
+        }
         EndDrawing();
     }
 

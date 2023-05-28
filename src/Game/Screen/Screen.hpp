@@ -12,7 +12,11 @@
 // N/A
 
 // User Libraries
+<<<<<<< HEAD
 //#include "../../main.hpp"
+=======
+// N/A
+>>>>>>> 83dea1bf79524c18656494b749329a03a9103f8e
 
 // External Libraries
 #include <raylib.h>
@@ -39,6 +43,7 @@ class Screen {
         *************************************************/
         virtual void DrawScreen() = 0; // IMPLEMENTATION is in all classes derived from the Screen.cpp
 
+<<<<<<< HEAD
         /*************************************************
         * Pure Virtual DrawScreen() class function. This
         * function is expected to be defined in the
@@ -61,6 +66,30 @@ class Screen {
         * coordinate position which the screen should start
         * to be drawn from. 
         *************************************************/
+=======
+    //     /*************************************************
+    //     * Pure Virtual DrawScreen() class function. This
+    //     * function is expected to be defined in the
+    //     * derived class.
+    //     *************************************************/
+    //     virtual void DrawFrontMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp ONLY!!!
+
+    //     /*************************************************
+    //     * Pure Virtual DrawScreen() class function. This
+    //     * function is expected to be defined in the
+    //     * derived class.
+    //     ************************************************/
+    //    virtual void DrawBackMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp
+    protected:
+
+        /*************************************************
+         * This is a protected function within the Screen
+         * class. This function may get called by the
+         * derived class. This function will set the x
+         * coordinate position which the screen should start
+         * to be drawn from.
+         *************************************************/
+>>>>>>> 83dea1bf79524c18656494b749329a03a9103f8e
         void setDrawPositionX(int x);
 
         /*************************************************

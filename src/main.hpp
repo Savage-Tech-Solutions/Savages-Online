@@ -18,11 +18,20 @@
 using std::strchr;
 
 // User Libraries
-#include "Game/Game.hpp"
-#include "Game/Screen/Screen.hpp"
-#include "Game/Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "../Game/Game.hpp"
+#include "../Game/Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "../Game/Screen/LoadingScreen/LoadingScreen.hpp"
 
 // External Libraries
 #include "raylib.h"
+
+enum GameStates {
+    LOADING_SCREEN,
+    MAIN_MENU_SCREEN,
+    GAME_SCREEN,
+    EXIT_SCREEN
+};
+
+
 
 #endif /* main_hpp */

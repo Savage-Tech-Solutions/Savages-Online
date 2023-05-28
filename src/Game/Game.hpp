@@ -18,6 +18,11 @@ using std::string;
 using std::vector;
 
 // User Libraries
+#include "Screen/InGameScreen/InGameScreen.hpp"
+#include "Screen/CreditsScreen/CreditsScreen.hpp"
+#include "Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "Screen/LoginScreen/LoginScreen.hpp"
+#include "Screen/RegisterScreen/RegisterScreen.hpp"
 #include "Screen/Screen.hpp"
 #include "Screen/MainMenuScreen/MainMenuScreen.hpp"
 #include "Screen/InGameScreen/InGameScreen.hpp"
