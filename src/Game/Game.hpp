@@ -18,14 +18,16 @@ using std::string;
 using std::vector;
 
 // User Libraries
-#include "Screen/InGameScreen/InGameScreen.hpp"
-#include "Screen/CreditsScreen/CreditsScreen.hpp"
+#include "Screen/Screen.hpp"
+#include "Screen/LoadingScreen/LoadingScreen.hpp"
 #include "Screen/MainMenuScreen/MainMenuScreen.hpp"
 #include "Screen/LoginScreen/LoginScreen.hpp"
 #include "Screen/RegisterScreen/RegisterScreen.hpp"
-#include "Screen/Screen.hpp"
-#include "Screen/MainMenuScreen/MainMenuScreen.hpp"
+#include "Screen/CreditsScreen/CreditsScreen.hpp"
+
 #include "Screen/InGameScreen/InGameScreen.hpp"
+
+
 
 // External Libraries
 #include <raylib.h>
@@ -40,10 +42,11 @@ struct Contributor {
     string discordUsername;
 };
 
-enum GUI_STATE {
-    MAIN_MENU,      // 0
-    PLAYING_GAME,   // 1
-    EXITING_GAME    // 2
+enum CurrentGameState{
+    LOADING_SCREEN,
+    MAIN_MENU_SCREEN,
+    GAME_SCREEN,
+    EXIT_SCREEN
 };
 
 /********************************************
@@ -52,20 +55,19 @@ enum GUI_STATE {
 class Game {
     
     public:
-        Game();                   // Default Constructor 
-        ~Game();                  // Destructor
-        void run();               // Will run the game and/or stop the game.
+        Game();                                 // Default Constructor 
+        ~Game();                                // Destructor
+        bool run(CurrentGameState *gameState);  // Runs the game from current state
+
         void printVersion();      // Shows the version
         void printHelp();         // Gives help
         void printUsersOnline();  // Prints users online
         void printLicense();      // Prints the license
         void printContributors(); // Shows the contributor
         
-
         // NEW - ADDED:/ 05/24/23 @ 3:45am
-        int StartPlayingGame(GUI_STATE gui);
-        int StopPlayingGame(GUI_STATE gui);
-
+        int StartPlayingGame(CurrentGameState *gui);
+        int StopPlayingGame(CurrentGameState *gui);
 
         // Setters
         void setVersion(string version);
@@ -87,9 +89,10 @@ class Game {
         string help;
         int usersOnline;
         vector<Contributor> collaboratorArray[MAX_CONTRIBUTORS];
-        GUI_STATE guiState;
+        LoadingScreen *loadingScreen;
         MainMenuScreen *mainMenuScreen;
         InGameScreen *inGameScreen;
+        CurrentGameState *currentGameState;
 };
 
 #endif /* Game_hpp */

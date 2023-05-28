@@ -33,22 +33,19 @@ int main(int argc, char* argv[])
 
     InitWindow(1280, 700, "Savages-Online | Version 0.0.1");
 
-
-    //GameStates gameState = LOADING_SCREEN;
-
     /**************************************************
      * Object/Class Initialization
     ***************************************************/
     Game *savages = new Game;
-    LoadingScreen *loadingScreen = new LoadingScreen;
-    MainMenuScreen *mainMenuScreen = new MainMenuScreen;
 
     /**************************************************
      * Variable Initialization
      ***************************************************/
     bool showOnce = true;
-    // GameStates gameState = MAIN_MENU_SCREEN;
-    GameStates gameState = LOADING_SCREEN;
+    bool isGameRunning = true;
+
+    CurrentGameState *gameState = new CurrentGameState;
+    *gameState = GAME_SCREEN;
 
     SetTargetFPS(60);
 
@@ -58,24 +55,21 @@ int main(int argc, char* argv[])
         BeginDrawing();
 
         ClearBackground(GRAY);
-
-        switch(gameState){
-            case LOADING_SCREEN:
-                loadingScreen->DrawScreen();
-                break;
-            case MAIN_MENU_SCREEN:
-                mainMenuScreen->DrawScreen(); 
-                break;
-            default:
-                std::cout << "ERROR: Invalid Game State" << std::endl;
-                break;
-        }
         
+        isGameRunning = savages->run(gameState);  
+        
+        EndDrawing();
+        
+        // Testing functiom printContributors()
         if(showOnce){
             savages->printContributors();
             showOnce = false;
         }
-        EndDrawing();
+
+        // Check if game needs to terminate
+        if (!isGameRunning) {
+            WindowShouldClose();
+        }
     }
 
     // De-Initialization
@@ -85,4 +79,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-

@@ -25,13 +25,4 @@ using std::strchr;
 // External Libraries
 #include "raylib.h"
 
-enum GameStates {
-    LOADING_SCREEN,
-    MAIN_MENU_SCREEN,
-    GAME_SCREEN,
-    EXIT_SCREEN
-};
-
-
-
 #endif /* main_hpp */

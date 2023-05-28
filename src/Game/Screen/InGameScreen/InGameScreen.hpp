@@ -1,5 +1,3 @@
-#ifndef INGAME_SCREEN_HPP
-#define INGAME_SCREEN_HPP
 /* ************************************************************
  * PROGRAMMER  : // TODO:// Finish Documentation
  * PROJECT     : Savages-Online
@@ -7,8 +5,12 @@
  * DESCRIPTION : // TODO:: Finish Documentation
  **************************************************************/
 
+#ifndef INGAME_SCREEN_HPP
+#define INGAME_SCREEN_HPP
+
 // System Libraries
-// N/A
+#include <iostream>
+#include <string>
 
 // User Libraries
 #include "../Screen.hpp"
@@ -19,26 +21,40 @@
 class InGameScreen : protected Screen {
 
     public:
-        InGameScreen();  // Constructor
+        /***********************************
+         * Default Constructor
+         ***********************************/
+        InGameScreen();
+
+        /***********************************
+         * Destructor
+         ***********************************/
         ~InGameScreen(); // Destructor
 
-        /********************************************************************************
-         * DrawScreen() function will draw the all contents to the screen. (Front and Back)
-         * Draw Map functions will be drawn here. Also, the player will be drawn here. 
-        ********************************************************************************/
+        /***********************************
+         * Implementing pure virtual function
+         ***********************************/
         void DrawScreen(); // Implementing 1 of 3 virtual functions from Screen.hpp
 
-        /********************************************************************************
-         * These functions will allow two different maps to be drawn. One map will be
-         * for walking behind objects, and the other map will be for walking in front of
-         * objects.
-        ********************************************************************************/
-        void DrawFrontMap(); // Implementing 2 of 3 virtual functions from Screen.hpp
-        void DrawBackMap(); // Implementing 3 of 3 virtual functions from Screen.hpp
-        
-        // Function Prototypes
-        void InGameLogic();
-        void InGameDisplay();
+        /***********************************
+         * 
+        ***********************************/
+        void DrawFrontMap(); // TODO: Implement this function
+
+        /***********************************
+         *
+         ***********************************/
+        void DrawBackMap();  // TODO: Implement this function
+
+        /***********************************
+         *
+         ***********************************/
+        void InGameLogic();  // TODO: Implement this function
+
+        /***********************************
+         *
+         ***********************************/
+        void InGameDisplay(); // TODO: Implement this function
 
     protected:
         // N/A
@@ -47,4 +63,5 @@ class InGameScreen : protected Screen {
         // N/A
 
 };
+
 #endif

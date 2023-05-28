@@ -1,17 +1,18 @@
 /*************************************************************
- * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROGRAMMER  : // TODO: Finish Documentation
  * PROJECT     : Savages-Online
  * VERSION     : 0.0.1
- * DESCRIPTION : // TODO:: Finish Documentation
+ * DESCRIPTION : // TODO: Finish Documentation
  **************************************************************/
 
 #include "InGameScreen.hpp"
-#include <iostream>
+
 /*******************************************************
  * Default Constructor
 *******************************************************/
-InGameScreen::InGameScreen() {    
-
+InGameScreen::InGameScreen() {
+    Texture2D backgroundTexture = LoadTexture("../resources/GUI/backgrounds/InGameScreen/in_game_background.png");
+    this->setBackgroundTexture(backgroundTexture);
 };
 
 /*******************************************************
@@ -24,7 +25,7 @@ InGameScreen::~InGameScreen() {
  * DrawScreen() function will draw the credits screen
  ******************************************************/
 void InGameScreen::DrawScreen() {
-    std::cout << "DrawScreen() function being called..." << std::endl;
+    DrawTexture(this->getBackgroundTexture(), this->getDrawPositionX(), this->getDrawPositionY(), WHITE);
 };
 
 /*******************************************************
@@ -60,4 +61,3 @@ void InGameScreen::InGameLogic() {
 void InGameScreen::InGameDisplay() {
     std::cout << "InGameDisplay() function being called..." << std::endl;
 };
-

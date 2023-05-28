@@ -11,14 +11,15 @@
  * Default Constructor
 *******************************************************/
 MainMenuScreen::MainMenuScreen() {
-
+    Texture2D backgroundTexture = LoadTexture("../resources/GUI/backgrounds/MainMenuScreen/main_menu_screen_background.png");
+    this->setBackgroundTexture(backgroundTexture);
 };
 
 /*******************************************************
  * Destructor
 *******************************************************/
 MainMenuScreen::~MainMenuScreen() {
-
+    // N/A
 };
 
 /*******************************************************
@@ -34,13 +35,12 @@ void MainMenuScreen::DrawScreen() {
  * the main menu.
 *******************************************************/
 void MainMenuScreen::MainMenuLogic() {
-
+    // N/A
 };
 
 /*******************************************************
  * MainMenuDisplay() function will display the main menu
 *******************************************************/
 void MainMenuScreen::MainMenuDisplay() {
-
+    // N/A
 };
-

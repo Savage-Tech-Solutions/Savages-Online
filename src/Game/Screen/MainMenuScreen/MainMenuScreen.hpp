@@ -25,8 +25,8 @@ class MainMenuScreen : protected Screen {
         MainMenuScreen();
         ~MainMenuScreen();
         void DrawScreen();
-        void MainMenuLogic();
-        void MainMenuDisplay();
+        void MainMenuLogic();    // TODO: Finish Implementation
+        void MainMenuDisplay();  // TODO: Finish Implementation
 
     protected:
         // N/A

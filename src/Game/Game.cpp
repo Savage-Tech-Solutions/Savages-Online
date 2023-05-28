@@ -46,10 +46,13 @@ Game::Game() {
     temp.discordUsername = "hoya#3909";
     collaboratorArray->push_back(temp);
 
-    this->guiState = MAIN_MENU;
+    this->loadingScreen = new LoadingScreen();
+    this->mainMenuScreen = new MainMenuScreen();
+    this->inGameScreen = new InGameScreen();
 
-    // this->mainMenuScreen = new MainMenuScreen();
-    // this->inGameScreen = new InGameScreen();
+    this->currentGameState = new CurrentGameState();
+
+    *currentGameState = LOADING_SCREEN;
 
 };
 
@@ -60,18 +63,27 @@ Game::~Game(){
     // n/a
 }
 
-void Game::run() {
-    // if (guiState == MAIN_MENU) {
-    //     this->mainMenuScreen->DrawScreen();
-    //     std::cout << "Main Menu...\n";
-    // } else if (guiState == PLAYING_GAME) {
-    //     this->inGameScreen->DrawScreen();
-    //     std::cout << "Playing Game...\n";
-    // } else if (guiState == EXITING_GAME) {
-    //     std::cout << "Exiting Game...\n";
-    // } else {
-    //     std::cout << "Error: GUI_STATE is not set to a valid state.\n";
-    // }
+bool Game::run(CurrentGameState *gameState) {
+    switch (*gameState){
+        case LOADING_SCREEN:
+            loadingScreen->DrawScreen();
+            return true;
+            break;
+        case MAIN_MENU_SCREEN:
+            mainMenuScreen->DrawScreen();
+            return true;
+            break;
+        case GAME_SCREEN:
+            inGameScreen->DrawScreen();
+            return true;
+            break;
+        case EXIT_SCREEN:
+            return false;
+            break;
+        default:
+            std::cout << "ERROR: Invalid Game State" << std::endl;
+            break;
+    }
 }
 
 /************************************************************
@@ -114,26 +126,12 @@ void Game::printContributors() {
     return;
 };
 
-/************************************************************
-* TODO: Finish this function
-************************************************************/
-int Game::StartPlayingGame(GUI_STATE gui) {
-    return 1; //TODO: Finish this function
-};
-
-/************************************************************
-* TODO: Finish this function 
-************************************************************/
-int Game::StopPlayingGame(GUI_STATE gui){
-    return 2; //TODO: Finish this function
-};
 
 /************************************************/
 /*************************************************
  *             Mutator Functions                 *
  *************************************************/
 /*************************************************/
-
 
 
 /************************************************************

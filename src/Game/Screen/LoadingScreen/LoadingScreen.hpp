@@ -1,3 +1,10 @@
+/* ************************************************************
+ * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROJECT     : Savages-Online
+ * VERSION     : 0.0.1
+ * DESCRIPTION : // TODO:: Finish Documentation
+ **************************************************************/
+
 #ifndef LoadingScreen_hpp
 #define LoadingScreen_hpp
 
@@ -14,20 +21,17 @@
 class LoadingScreen : protected Screen {
 
     public:
-        int anim_counter;
         LoadingScreen();
         ~LoadingScreen();
         void DrawScreen();
-        void LoadingScreenLogic();
-        void LoadingScreenDisplay();
+        void LoadingScreenLogic();    // TODO: Finish Implementation
+        void LoadingScreenDisplay();  // TODO: Finish Implementation
 
-            protected :
+            //protected :
             // N/A
 
-            //private : Texture2D backgroundTexture; 
+            //private:
+            // N/A
 };
-
-
-
 
 #endif /* LoadingScreen_hpp */
