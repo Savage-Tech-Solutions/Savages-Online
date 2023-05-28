@@ -84,7 +84,7 @@ bool Game::run(CurrentGameState *gameState) {
             std::cout << "ERROR: Invalid Game State" << std::endl;
             break;
     }
-}
+};
 
 /************************************************************
 * getUsersOnline() - Returns the number of users online
