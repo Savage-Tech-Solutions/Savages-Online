@@ -14,6 +14,7 @@
 class LoadingScreen : protected Screen {
 
     public:
+        int anim_counter;
         LoadingScreen();
         ~LoadingScreen();
         void DrawScreen();
@@ -23,7 +24,7 @@ class LoadingScreen : protected Screen {
             protected :
             // N/A
 
-            //private : Texture2D backgroundTexture; int anim_counter;
+            //private : Texture2D backgroundTexture; 
 };
 
 
