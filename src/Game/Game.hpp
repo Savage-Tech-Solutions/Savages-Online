@@ -24,10 +24,7 @@ using std::vector;
 #include "Screen/LoginScreen/LoginScreen.hpp"
 #include "Screen/RegisterScreen/RegisterScreen.hpp"
 #include "Screen/CreditsScreen/CreditsScreen.hpp"
-
 #include "Screen/InGameScreen/InGameScreen.hpp"
-
-
 
 // External Libraries
 #include <raylib.h>

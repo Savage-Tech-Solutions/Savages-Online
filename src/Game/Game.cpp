@@ -61,8 +61,11 @@ Game::Game() {
  ************************************************/ 
 Game::~Game(){
     // n/a
-}
+};
 
+/*************************************************
+ * run() - Runs the game from current state
+ ************************************************/
 bool Game::run(CurrentGameState *gameState) {
     switch (*gameState){
         case LOADING_SCREEN:
@@ -91,28 +94,28 @@ bool Game::run(CurrentGameState *gameState) {
 ************************************************************/
 void Game::printVersion() {
     std::cout << "Version: " << version << std::endl;
-}
+};
 
 /************************************************************
 * getUsersOnline() - Returns the number of users online
 ************************************************************/
 void Game::printHelp() {
     std::cout << "Help: " << help << std::endl;
-}
+};
 
 /************************************************************
 * getUsersOnline() - Returns the number of users online
 ************************************************************/
 void Game::printUsersOnline() {
     std::cout << "Users Online: " << usersOnline << std::endl;
-}
+};
 
 /************************************************************
 * getUsersOnline() - Returns the number of users online
 ************************************************************/
 void Game::printLicense() {
     std::cout << "License: " << license << std::endl;
-}
+};
 
 /************************************************************
 * getUsersOnline() - Returns the number of users online
@@ -139,35 +142,35 @@ void Game::printContributors() {
 ************************************************************/
 void Game::setVersion(string version) {
     this->version = version;
-}
+};
 
 /************************************************************
 * setHelp() - Sets the help string with the help commands
 ************************************************************/
 void Game::setHelp(string help) {
     this->help = help;
-}
+};
 
 /************************************************************
 * TODO: Finish documentation
 ************************************************************/
 void Game::setUsersOnline(string usersOnline) {
     this->usersOnline = getUsersOnline(); // Eventually this will be a vector of users being appended during game play.
-}
+};
 
 /************************************************************
 * TODO: Finish documentation
 ************************************************************/
 void Game::setLicense(string license) {
     this->license = license;
-}
+};
 
 /************************************************************
 * TODO: Finish documentation
 ************************************************************/
 void Game::setContributors(Contributor newContributor) {
      collaboratorArray->push_back(newContributor);
-}
+};
 
 
 /************************************************/
@@ -182,7 +185,7 @@ void Game::setContributors(Contributor newContributor) {
 ************************************************************/
 string Game::getVersion(){
     return version;
-}
+};
 
 /************************************************************
 * getHelp() - Returns the help string

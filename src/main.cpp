@@ -45,12 +45,12 @@ int main(int argc, char* argv[])
     bool isGameRunning = true;
 
     CurrentGameState *gameState = new CurrentGameState;
-    *gameState = GAME_SCREEN;
+    *gameState = LOADING_SCREEN;
 
     SetTargetFPS(60);
 
     // Main game loop
-    while(!WindowShouldClose()){
+    while(!WindowShouldClose() && isGameRunning){
 
         BeginDrawing();
 
@@ -64,11 +64,6 @@ int main(int argc, char* argv[])
         if(showOnce){
             savages->printContributors();
             showOnce = false;
-        }
-
-        // Check if game needs to terminate
-        if (!isGameRunning) {
-            WindowShouldClose();
         }
     }
 
