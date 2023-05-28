@@ -20,12 +20,10 @@ class LoadingScreen : protected Screen {
         void LoadingScreenLogic();
         void LoadingScreenDisplay();
 
-        void setBackgroundTexture(Texture2D texture);
-
             protected :
             // N/A
 
-            private : Texture2D backgroundTexture; int anim_counter;
+            //private : Texture2D backgroundTexture; int anim_counter;
 };
 
 

@@ -41,21 +41,19 @@ int main(int argc, char* argv[])
     ***************************************************/
     Game *savages = new Game;
     LoadingScreen *loadingScreen = new LoadingScreen;
-    //loadingScreen->setBackgroundTexture(Texture2D{});
-    MainMenuScreen *mainMenuScreen;
+    MainMenuScreen *mainMenuScreen = new MainMenuScreen;
 
     /**************************************************
      * Variable Initialization
      ***************************************************/
     bool showOnce = true;
-    GameStates gameState = MAIN_MENU_SCREEN;
+    // GameStates gameState = MAIN_MENU_SCREEN;
+    GameStates gameState = LOADING_SCREEN;
 
     SetTargetFPS(60);
 
     // Main game loop
     while(!WindowShouldClose()){
-
-        gameState = MAIN_MENU_SCREEN;
 
         BeginDrawing();
 
