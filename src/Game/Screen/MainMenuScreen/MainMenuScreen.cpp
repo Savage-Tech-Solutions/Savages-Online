@@ -26,7 +26,7 @@ MainMenuScreen::~MainMenuScreen() {
  * using the pure virtual function from the Screen class.
 *******************************************************/
 void MainMenuScreen::DrawScreen() {
-
+    DrawTexture(this->getBackgroundTexture(), this->getDrawPositionX(), this->getDrawPositionY(), WHITE);
 };
 
 /*******************************************************

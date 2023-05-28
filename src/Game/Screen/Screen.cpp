@@ -18,8 +18,8 @@ Screen::Screen(){
     this->y = 0;
     this->width = 1280;
     this->height = 720;
-    this->background = LoadTexture("resources/GUI/backgrounds/paper_background.png");  // edit this later
-    this->userInputFontStyle = LoadFont("resources/Fonts/PathwayGothicOne-Regular.ttf"); // edit this later
+    this->background = LoadTexture("../resources/GUI/backgrounds/paper_background.png");  // edit this later
+    this->userInputFontStyle = LoadFont("../resources/Fonts/PathwayGothicOne-Regular.ttf"); // edit this later
 }
 
 

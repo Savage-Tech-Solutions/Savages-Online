@@ -34,7 +34,8 @@ int main(int argc, char* argv[])
     InitWindow(1280, 700, "Savages-Online | Version 0.0.1");
 
 
-    GameStates gameState = LOADING_SCREEN;
+    //GameStates gameState = LOADING_SCREEN;
+    GameStates gameState = MAIN_MENU_SCREEN;
 
     /**************************************************
      * Object/Class Initialization
