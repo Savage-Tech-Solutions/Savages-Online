@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
     bool showOnce = true;
     bool isGameRunning = true;
     CurrentGameState *gameState = new CurrentGameState;
-    *gameState = EXIT_SCREEN;
+    *gameState = LOADING_SCREEN;
 
     // Set Target FPS
     SetTargetFPS(60);
