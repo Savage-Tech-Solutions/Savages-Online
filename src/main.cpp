@@ -7,11 +7,11 @@
 
 #include "main.hpp"
 
-int main(int argc, char* argv[])
-{
-    // Get the current working directory
-    //--------------------------------------------------------------------------------------
+int main(int argc, char* argv[]) {
 
+    /**************************************************
+     * Get Current Working Directory
+     ***************************************************/
     char path_save[1024];
     char cwd[1024];
     char* p;
@@ -28,9 +28,9 @@ int main(int argc, char* argv[])
     string NEW_WORKING_DIR = string(cwd) + "/";
     chdir(NEW_WORKING_DIR.c_str());
 
-    // Initialization
-    //--------------------------------------------------------------------------------------
-
+    /**************************************************
+     * Window Initialization
+     ***************************************************/
     InitWindow(1280, 700, "Savages-Online | Version 0.0.1");
 
     /**************************************************
@@ -43,10 +43,10 @@ int main(int argc, char* argv[])
      ***************************************************/
     bool showOnce = true;
     bool isGameRunning = true;
-
     CurrentGameState *gameState = new CurrentGameState;
-    *gameState = LOADING_SCREEN;
+    *gameState = EXIT_SCREEN;
 
+    // Set Target FPS
     SetTargetFPS(60);
 
     // Main game loop
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
 
         ClearBackground(GRAY);
         
-        isGameRunning = savages->run(gameState);  
+        isGameRunning = savages->run(gameState);
         
         EndDrawing();
         
