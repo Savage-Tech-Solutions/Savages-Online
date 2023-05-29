@@ -15,6 +15,7 @@
 
 // User Libraries
 #include "../Screen.hpp"
+#include "../ButtonComponent/Button.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---
@@ -33,6 +34,10 @@ class MainMenuScreen : protected Screen {
 
     private:
         // N/A
+        Button *loginButton;
+        Button *registerButton;
+        Button *creditsButton;
+        Button *exitButton;
 
 };
 

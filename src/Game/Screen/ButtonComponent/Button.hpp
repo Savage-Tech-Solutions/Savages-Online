@@ -23,6 +23,7 @@ class Button {
         void setButtonHeight(int height);
         void setUnpressedTexture(Texture2D texture);
         void setPressedTexture(Texture2D texture);
+        void setCurrentTexture(Texture2D texture);
 
         int getDrawPositionX();
         int getDrawPositionY();
@@ -30,8 +31,7 @@ class Button {
         int getButtonHeight();
         Texture2D getUnpressedTexture();
         Texture2D getPressedTexture();
-
-
+        Texture2D getCurrentTexture();
 
     private:
         int drawX;
@@ -41,12 +41,6 @@ class Button {
         Texture2D unpressedTexture;
         Texture2D pressedTexture;
         Texture2D currentTexture;
-
-
-
-
 };
-
-
 
 #endif /* Button_hpp */

@@ -54,6 +54,8 @@ Game::Game() {
 
     *currentGameState = LOADING_SCREEN;
 
+    this->loadingCounter = 0;
+
 };
 
 /*************************************************
@@ -69,6 +71,11 @@ Game::~Game(){
 bool Game::run(CurrentGameState *gameState) {
     switch (*gameState){
         case LOADING_SCREEN:
+            if(loadingCounter < 150) {
+                loadingCounter++;
+            } else {
+                *gameState = MAIN_MENU_SCREEN;
+            }
             loadingScreen->DrawScreen();
             return true;
             break;

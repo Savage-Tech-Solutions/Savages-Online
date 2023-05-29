@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     /**************************************************
      * Window Initialization
      ***************************************************/
-    InitWindow(1280, 700, "Savages-Online | Version 0.0.1");
+    InitWindow(1280, 720, "Savages-Online | Version 0.0.1");
 
     /**************************************************
      * Object/Class Initialization

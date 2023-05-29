@@ -3,11 +3,11 @@
 Button::Button(){
     this->drawX = 0;
     this->drawY = 0;
-    this->width = 200;
-    this->height = 50;
     this->unpressedTexture = LoadTexture("../../resources/GUI/buttons/01/button_unpressed.png");
     this->pressedTexture = LoadTexture("../../resources/GUI/buttons/01/button_pressed.png");
     this->currentTexture = this->unpressedTexture;
+    this->width = this->currentTexture.width;
+    this->height = this->currentTexture.height;
 };
 
 Button::~Button(){
@@ -41,6 +41,10 @@ void Button::setUnpressedTexture(Texture2D texture){
     this->unpressedTexture = texture;
 };
 
+void Button::setCurrentTexture(Texture2D texture){
+    this->currentTexture = texture;
+};
+
 // Getters
 
 int Button::getDrawPositionX(){
@@ -65,4 +69,8 @@ Texture2D Button::getPressedTexture(){
 
 Texture2D Button::getUnpressedTexture(){
     return this->unpressedTexture;
+};
+
+Texture2D Button::getCurrentTexture(){
+    return this->currentTexture;
 };

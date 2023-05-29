@@ -90,6 +90,7 @@ class Game {
         MainMenuScreen *mainMenuScreen;
         InGameScreen *inGameScreen;
         CurrentGameState *currentGameState;
+        int loadingCounter;
 };
 
 #endif /* Game_hpp */
