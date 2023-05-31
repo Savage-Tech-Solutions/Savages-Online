@@ -25,7 +25,7 @@ CreditsScreen::~CreditsScreen() {
  * DrawScreen() function will draw the credits screen
 *******************************************************/
 void CreditsScreen::DrawScreen() {
-    std::cout << "DrawScreen() function being called..." << std::endl;
+    ClearBackground(RED);
 };
 
 /*******************************************************

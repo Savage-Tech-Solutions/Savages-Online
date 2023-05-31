@@ -25,7 +25,7 @@ RegisterScreen::~RegisterScreen() {
  * DrawScreen() function will draw the register screen
  *******************************************************/
 void RegisterScreen::DrawScreen() {
-
+    ClearBackground(BLUE);
 };
 
 /*******************************************************

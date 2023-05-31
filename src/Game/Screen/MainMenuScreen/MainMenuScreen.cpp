@@ -147,3 +147,35 @@ int MainMenuScreen::getRegisterButtonWidth(){
 int MainMenuScreen::getRegisterButtonHeight(){
     return this->registerButton->getButtonHeight();
 };
+
+int MainMenuScreen::getCreditsButtonPositionX() {
+    return this->creditsButton->getDrawPositionX();
+};
+
+int MainMenuScreen::getCreditsButtonPositionY() {
+    return this->creditsButton->getDrawPositionY();
+};
+
+int MainMenuScreen::getCreditsButtonWidth() {
+    return this->creditsButton->getButtonWidth();
+};
+
+int MainMenuScreen::getCreditsButtonHeight() {
+    return this->creditsButton->getButtonHeight();
+};
+
+int MainMenuScreen::getExitButtonPositionX() {
+    return this->exitButton->getDrawPositionX();
+};
+
+int MainMenuScreen::getExitButtonPositionY() {
+    return this->exitButton->getDrawPositionY();
+};
+
+int MainMenuScreen::getExitButtonWidth(){
+    return this->exitButton->getButtonWidth();
+};
+
+int MainMenuScreen::getExitButtonHeight(){
+    return this->exitButton->getButtonHeight();
+};

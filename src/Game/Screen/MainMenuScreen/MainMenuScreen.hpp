@@ -43,6 +43,16 @@ class MainMenuScreen : protected Screen {
         int getRegisterButtonWidth();
         int getRegisterButtonHeight();
 
+        int getCreditsButtonPositionX();
+        int getCreditsButtonPositionY();
+        int getCreditsButtonWidth();
+        int getCreditsButtonHeight();
+
+        int getExitButtonPositionX();
+        int getExitButtonPositionY();
+        int getExitButtonWidth();
+        int getExitButtonHeight();
+
     protected:
         // N/A
 

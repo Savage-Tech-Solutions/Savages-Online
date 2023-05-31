@@ -25,7 +25,7 @@ LoginScreen::~LoginScreen() {
  * DrawScreen() function will draw the login screen
  *******************************************************/
 void LoginScreen::DrawScreen() {
-
+    ClearBackground(BLACK);
 };
 
 /*******************************************************

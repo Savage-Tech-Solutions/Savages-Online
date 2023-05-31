@@ -92,20 +92,56 @@ bool Game::run(CurrentGameState *gameState) {
                     *gameState = MAIN_MENU_SCREEN;
                 }
             }
+            else if (GetMouseX() >= this->mainMenuScreen->getRegisterButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getRegisterButtonPositionX() + this->mainMenuScreen->getRegisterButtonWidth() &&
+                     GetMouseY() >= this->mainMenuScreen->getRegisterButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getRegisterButtonPositionY() + this->mainMenuScreen->getRegisterButtonHeight())
+            {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    *gameState = REGISTER_SCREEN;
+                } else {
+                    *gameState = MAIN_MENU_SCREEN;
+                }
+            }
+            else if (GetMouseX() >= this->mainMenuScreen->getCreditsButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getCreditsButtonPositionX() + this->mainMenuScreen->getCreditsButtonWidth() &&
+                     GetMouseY() >= this->mainMenuScreen->getCreditsButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getCreditsButtonPositionY() + this->mainMenuScreen->getCreditsButtonHeight())
+            {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                {
+                    *gameState = CREDITS_SCREEN;
+                }
+                else
+                {
+                    *gameState = MAIN_MENU_SCREEN;
+                }
+            }
+            else if (GetMouseX() >= this->mainMenuScreen->getExitButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getExitButtonPositionX() + this->mainMenuScreen->getExitButtonWidth() &&
+                     GetMouseY() >= this->mainMenuScreen->getExitButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getExitButtonPositionY() + this->mainMenuScreen->getExitButtonHeight())
+            {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                {
+                    *gameState = EXIT_SCREEN;
+                }
+                else
+                {
+                    *gameState = MAIN_MENU_SCREEN;
+                }
+            }
             mainMenuScreen->DrawScreen();
             return true;
             break;
         case LOGIN_SCREEN:
+            this->loginScreen->DrawScreen();
             return true;
             break;
         case REGISTER_SCREEN:
+            this->registerScreen->DrawScreen();
             return true;
             break;
         case CREDITS_SCREEN:
+            this->creditsScreen->DrawScreen();
             return true;
             break;
         case GAME_SCREEN:
-            inGameScreen->DrawScreen();
+            this->inGameScreen->DrawScreen();
             return true;
             break;
         case EXIT_SCREEN:
