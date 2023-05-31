@@ -42,6 +42,9 @@ struct Contributor {
 enum CurrentGameState{
     LOADING_SCREEN,
     MAIN_MENU_SCREEN,
+    LOGIN_SCREEN,
+    REGISTER_SCREEN,
+    CREDITS_SCREEN,
     GAME_SCREEN,
     EXIT_SCREEN
 };
@@ -61,10 +64,6 @@ class Game {
         void printUsersOnline();  // Prints users online
         void printLicense();      // Prints the license
         void printContributors(); // Shows the contributor
-        
-        // NEW - ADDED:/ 05/24/23 @ 3:45am
-        int StartPlayingGame(CurrentGameState *gui);
-        int StopPlayingGame(CurrentGameState *gui);
 
         // Setters
         void setVersion(string version);
@@ -88,6 +87,9 @@ class Game {
         vector<Contributor> collaboratorArray[MAX_CONTRIBUTORS];
         LoadingScreen *loadingScreen;
         MainMenuScreen *mainMenuScreen;
+        LoginScreen *loginScreen;
+        RegisterScreen *registerScreen;
+        CreditsScreen *creditsScreen;
         InGameScreen *inGameScreen;
         CurrentGameState *currentGameState;
         int loadingCounter;

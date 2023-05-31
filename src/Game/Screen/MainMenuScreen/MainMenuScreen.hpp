@@ -12,6 +12,9 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <vector>
+using std::string;
+using std::vector;
 
 // User Libraries
 #include "../Screen.hpp"
@@ -28,6 +31,17 @@ class MainMenuScreen : protected Screen {
         void DrawScreen();
         void MainMenuLogic();    // TODO: Finish Implementation
         void MainMenuDisplay();  // TODO: Finish Implementation
+
+        // New Functions --GETTERS--
+        int getLoginButtonPositionX();
+        int getLoginButtonPositionY();
+        int getLoginButtonWidth();
+        int getLoginButtonHeight();
+
+        int getRegisterButtonPositionX();
+        int getRegisterButtonPositionY();
+        int getRegisterButtonWidth();
+        int getRegisterButtonHeight();
 
     protected:
         // N/A

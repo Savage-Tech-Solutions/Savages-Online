@@ -115,3 +115,35 @@ void MainMenuScreen::MainMenuDisplay() {
     DrawTexture(this->creditsButton->getCurrentTexture(), this->creditsButton->getDrawPositionX(), this->creditsButton->getDrawPositionY(), WHITE);
     DrawTexture(this->exitButton->getCurrentTexture(), this->exitButton->getDrawPositionX(), this->exitButton->getDrawPositionY(), WHITE);
 };
+
+int MainMenuScreen::getLoginButtonPositionX(){
+    return this->loginButton->getDrawPositionX();
+};
+
+int MainMenuScreen::getLoginButtonPositionY(){
+    return this->loginButton->getDrawPositionY();
+};
+
+int MainMenuScreen::getLoginButtonWidth(){
+    return this->loginButton->getButtonWidth();
+};
+
+int MainMenuScreen::getLoginButtonHeight(){
+    return this->loginButton->getButtonHeight();
+};
+
+int MainMenuScreen::getRegisterButtonPositionX(){
+    return this->registerButton->getDrawPositionX();
+};
+
+int MainMenuScreen::getRegisterButtonPositionY(){
+    return this->registerButton->getDrawPositionY();
+};
+
+int MainMenuScreen::getRegisterButtonWidth(){
+    return this->registerButton->getButtonWidth();
+};
+
+int MainMenuScreen::getRegisterButtonHeight(){
+    return this->registerButton->getButtonHeight();
+};

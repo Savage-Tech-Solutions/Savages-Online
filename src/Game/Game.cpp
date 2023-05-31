@@ -48,6 +48,9 @@ Game::Game() {
 
     this->loadingScreen = new LoadingScreen();
     this->mainMenuScreen = new MainMenuScreen();
+    this->loginScreen = new LoginScreen();
+    this->registerScreen = new RegisterScreen();
+    this->creditsScreen = new CreditsScreen();
     this->inGameScreen = new InGameScreen();
 
     this->currentGameState = new CurrentGameState();
@@ -80,7 +83,25 @@ bool Game::run(CurrentGameState *gameState) {
             return true;
             break;
         case MAIN_MENU_SCREEN:
+            if (GetMouseX() >= this->mainMenuScreen->getLoginButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getLoginButtonPositionX() + this->mainMenuScreen->getLoginButtonWidth() &&
+                GetMouseY() >= this->mainMenuScreen->getLoginButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getLoginButtonPositionY() + this->mainMenuScreen->getLoginButtonHeight())
+            {
+                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+                    *gameState = LOGIN_SCREEN;
+                } else {
+                    *gameState = MAIN_MENU_SCREEN;
+                }
+            }
             mainMenuScreen->DrawScreen();
+            return true;
+            break;
+        case LOGIN_SCREEN:
+            return true;
+            break;
+        case REGISTER_SCREEN:
+            return true;
+            break;
+        case CREDITS_SCREEN:
             return true;
             break;
         case GAME_SCREEN:
