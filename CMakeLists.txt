@@ -35,7 +35,7 @@ if(NOT CURL_FOUND)
 	DOWNLOAD_EXTRACT_TIMESTAMP OFF
 	URL https://curl.se/download/curl-${CURL_VERSION}.tar.gz
   )
-  FetchContent_GetProperties(curl)
+  FetchContent_GetProperties(CURL)
   if (NOT CURL_POPULATED)
   	set(FETCHCONTENT_QUIET NO)
   	FetchContent_Populate(CURL)
