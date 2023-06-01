@@ -19,6 +19,7 @@ using std::strchr;
 
 // User Libraries
 #include "Game/Game.hpp"
+#include "api.hpp"
 
 // External Libraries
 #include "raylib.h"

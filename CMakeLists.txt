@@ -1,35 +1,83 @@
 cmake_minimum_required(VERSION 3.14)
-project(savages)
+
+project(Savages-Online)
+
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(raylib 4.5.0 QUIET)
-find_package(CURL REQUIRED)
-include(FetchContent)
-
-if (NOT raylib_FOUND)
-	FetchContent_Declare(
-		raylib
-		URL https://github.com/raysan5/raylib/archive/refs/tags/4.5.0.tar.gz
-	)
-	FetchContent_GetProperties(raylib)
-	if (NOT raylib_POPULATED)
-		set(FETCHCONTENT_QUIET NO)
-		FetchContent_Populate(raylib)
-		set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-
-		option(CUSTOMIZE_BUILD "" ON)
-		option(SUPPORT_SCREEN_CAPTURE "" OFF)
-		option(SUPPORT_FILEFORMAT_GIF "" ON)
-
-		add_subdirectory(${raylib_SOURCE_DIR} ${raylib_BINARY_DIR})
-	endif()
+# RAYLIB LIBRARY
+set(RAYLIB_VERSION 4.5.0)
+find_package(raylib ${RAYLIB_VERSION} QUIET)
+if (NOT raylib_FOUND) # If there's none, fetch and build raylib
+  include(FetchContent)
+  FetchContent_Declare(
+    raylib
+    DOWNLOAD_EXTRACT_TIMESTAMP OFF
+    URL https://github.com/raysan5/raylib/archive/refs/tags/${RAYLIB_VERSION}.tar.gz
+  )
+  FetchContent_GetProperties(raylib)
+  if (NOT raylib_POPULATED) # Have we downloaded raylib yet?
+    set(FETCHCONTENT_QUIET NO)
+    FetchContent_Populate(raylib)
+    set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE) # don't build the supplied examples
+    add_subdirectory(${raylib_SOURCE_DIR} ${raylib_BINARY_DIR})
+  endif()
 endif()
+
+# CURL LIBRARY
+set(CURL_VERSION 7.64.1)
+find_package(CURL ${CURL_VERSION} REQUIRED)
+if(NOT CURL_FOUND)
+  include(FetchContent)
+  FetchContent_Declare(
+	CURL
+	DOWNLOAD_EXTRACT_TIMESTAMP OFF
+	URL https://curl.se/download/curl-${CURL_VERSION}.tar.gz
+  )
+  FetchContent_GetProperties(curl)
+  if (NOT CURL_POPULATED)
+  	set(FETCHCONTENT_QUIET NO)
+  	FetchContent_Populate(CURL)
+	set(BUILD_CURL_EXE OFF CACHE BOOL "" FORCE)
+	add_subdirectory(${CURL_SOURCE_DIR} ${CURL_BINARY_DIR})
+  endif()
+endif()
+
+# JSON LIBRARY
+# set(JSON_VERSION 3.11.2)
+# find_package(json ${JSON_VERSION} REQUIRED)
+# if(NOT JSON_FOUND)
+#   include(FetchContent)
+#   FetchContent_Declare(
+# 	json
+# 	DOWNLOAD_EXTRACT_TIMESTAMP OFF
+# 	URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz
+#   )
+#   FetchContent_GetProperties(json)
+#   if (NOT json_POPULATED)
+#   	set(FETCHCONTENT_QUIET NO)
+#   	FetchContent_Populate(json)
+# 	set(BUILD_CURL_EXE OFF CACHE BOOL "" FORCE)
+# 	add_subdirectory(${json_SOURCE_DIR} ${json_BINARY_DIR})
+#   endif()
+# endif()
+
+FetchContent_Declare(raylib URL https://github.com/raysan5/raylib/archive/refs/tags/4.5.0.tar.gz)
+FetchContent_GetProperties(raylib)
+
+FetchContent_Declare(curl URL https://curl.se/download/curl-7.64.1.tar.gz)
+FetchContent_GetProperties(CURL)
+
+# FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+# FetchContent_MakeAvailable(json)
+
 file(GLOB_RECURSE CPP_SOURCES src/*.cpp)
-add_compile_options("-DSUPPORT_FILEFORMAT_GIF")
+
+
 add_executable(${PROJECT_NAME} ${CPP_SOURCES})
 
-FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
-FetchContent_MakeAvailable(json)
 
-target_link_libraries(${PROJECT_NAME} raylib nlohmann_json::nlohmann_json ${CURL_LIBRARIES})
+
+target_link_libraries(${PROJECT_NAME} raylib curl)
 #target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/include")

@@ -33,6 +33,8 @@ int main(int argc, char* argv[]) {
      ***************************************************/
     InitWindow(1280, 720, "Savages-Online | Version 0.0.1");
 
+    CurlGlobalInit();
+
     /**************************************************
      * Object/Class Initialization
     ***************************************************/

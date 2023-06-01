@@ -10,6 +10,7 @@
 
 #define MAX_CONTRIBUTORS 7
 
+
 //System Libraries
 #include <iostream>
 #include <string>
@@ -28,8 +29,9 @@ using std::vector;
 
 // External Libraries
 #include <raylib.h>
-#include <nlohmann/json.hpp>
-using json = nlohmann::json;
+// #include <curl/curl.h>
+// #include <nlohmann/json.hpp>
+// using json = nlohmann::json;
 
 /*********************************************/
 /*            Contributor Struct             */
