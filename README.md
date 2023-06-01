@@ -12,6 +12,7 @@ mkdir build && cd build
 ***Which in our case the root directory looks for the source from Savages-Online/src so we use '..' to denote going back a folder to be out of the build directory/folder***
 ***The build destination we'll use a '.' to indicate it to make the executable in the current directory/folder which will be found as build/Savages-Online (A UNIX Executable file)***
 ***The -Wno-dev is just a compiler flag needed to avoid a deprecation issue being compiled.***
+
 2.
 ```bash
 cmake -S .. -B . -Wno-dev
