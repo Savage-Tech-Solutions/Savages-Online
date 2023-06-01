@@ -29,7 +29,6 @@ using std::vector;
 
 // External Libraries
 #include <raylib.h>
-// #include <curl/curl.h>
 // #include <nlohmann/json.hpp>
 // using json = nlohmann::json;
 

@@ -37,10 +37,16 @@ static size_t WriteMemoryCallback(char *contents, size_t size, size_t nmemb, voi
   return realSize;
 };
 
+/*************************************************************
+ * TODO:// Finish Documentation
+ *************************************************************/
 void CurlGlobalInit(void) {
     CurlGlobalInit();
 };
 
+/*************************************************************
+ * TODO:// Finish Documentation
+ *************************************************************/
 void CurlGlobalCleanup(void) {
     curl_global_cleanup();
 };

@@ -32,5 +32,4 @@ static size_t WriteMemoryCallback(char *contents, size_t size, size_t nmemb, voi
 void CurlGlobalInit(void);
 void CurlGlobalCleanup(void);
 
-
 #endif /* api_hpp */

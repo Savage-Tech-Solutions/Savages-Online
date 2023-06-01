@@ -74,10 +74,7 @@ FetchContent_GetProperties(CURL)
 
 file(GLOB_RECURSE CPP_SOURCES src/*.cpp)
 
-
 add_executable(${PROJECT_NAME} ${CPP_SOURCES})
 
-
-
 target_link_libraries(${PROJECT_NAME} raylib curl)
-#target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/include")
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR}+"/../include/**")

@@ -19,15 +19,11 @@ Game::Game() {
     Contributor temp;  // Temp variable to push new Contributors into vector.
 
     temp.name = "Bryce";
-    temp.discordUsername = "bberwald0#7777";
+    temp.discordUsername = "Bryce#7777";
     collaboratorArray->push_back(temp);
     
     temp.name = "Julien";
     temp.discordUsername = "Julien#8652";
-    collaboratorArray->push_back(temp);
-
-    temp.name = "flaschenholz";
-    temp.discordUsername = "flaschenholz#1893";
     collaboratorArray->push_back(temp);
 
     temp.name = "Bronson";
@@ -36,14 +32,6 @@ Game::Game() {
 
     temp.name = "Andrew";
     temp.discordUsername = "miranda#4988";
-    collaboratorArray->push_back(temp);
-
-    temp.name = "NudistRahip";
-    temp.discordUsername = "NudistRahip#3651";
-    collaboratorArray->push_back(temp);
-
-    temp.name = "Hoya";
-    temp.discordUsername = "hoya#3909";
     collaboratorArray->push_back(temp);
 
     this->loadingScreen = new LoadingScreen();

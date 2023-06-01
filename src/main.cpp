@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
      ***************************************************/
     InitWindow(1280, 720, "Savages-Online | Version 0.0.1");
 
-    CurlGlobalInit();
+    CurlGlobalInit();    // Initialize curl globally
 
     /**************************************************
      * Object/Class Initialization
@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
         
         EndDrawing();
         
-        // Testing functiom printContributors()
+        // Testing function printContributors()
         if(showOnce){
             savages->printContributors();
             showOnce = false;
@@ -71,6 +71,7 @@ int main(int argc, char* argv[]) {
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
+    CurlGlobalCleanup();           // Cleanup curl
     CloseWindow();                 // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 
