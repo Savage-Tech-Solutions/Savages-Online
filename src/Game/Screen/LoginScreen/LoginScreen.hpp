@@ -13,6 +13,7 @@
 
 // User Libraries
 #include "../Screen.hpp"
+#include "../ButtonComponent/Button.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---
@@ -29,11 +30,22 @@ class LoginScreen : protected Screen {
         void LoginDisplay();
 
     protected:
-        //TODO: Finish code for RegisterScreen
+        // N/A
 
     private:
-        //TODO: Finish code for RegisterScreen
+        Button *loginNowButton;
+        Button *registerNowButton;
+        Texture2D backgroundTexture;
 
+        int loginNowX;
+        int loginNowY;
+        int loginNowWidth;
+        int loginNowHeight;
+
+        int registerNowX;
+        int registerNowY;
+        int registerNowWidth;
+        int registerNowHeight;
 };
 
 
