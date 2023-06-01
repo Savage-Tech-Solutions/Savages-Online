@@ -20,27 +20,28 @@ LoginScreen::LoginScreen() {
     this->loginNowButton->setButtonHeight(this->loginNowButton->getUnpressedTexture().height);
     this->loginNowButton->setCurrentTexture(this->loginNowButton->getUnpressedTexture());
 
-    this->registerNowButton = new Button();
-    this->registerNowButton->setDrawPositionX(700);
-    this->registerNowButton->setDrawPositionY(500);
-    this->registerNowButton->setUnpressedTexture(LoadTexture("../resources/GUI/buttons/01/button_unpressed.png"));
-    this->registerNowButton->setPressedTexture(LoadTexture("../resources/GUI/buttons/01/button_pressed.png"));
-    this->registerNowButton->setButtonWidth(this->registerNowButton->getUnpressedTexture().width);
-    this->registerNowButton->setButtonHeight(this->registerNowButton->getUnpressedTexture().height);
-    this->registerNowButton->setCurrentTexture(this->registerNowButton->getUnpressedTexture());
+    this->backNowButton = new Button();
+    this->backNowButton->setDrawPositionX(700);
+    this->backNowButton->setDrawPositionY(500);
+    this->backNowButton->setUnpressedTexture(LoadTexture("../resources/GUI/buttons/01/button_unpressed.png"));
+    this->backNowButton->setPressedTexture(LoadTexture("../resources/GUI/buttons/01/button_pressed.png"));
+    this->backNowButton->setButtonWidth(this->backNowButton->getUnpressedTexture().width);
+    this->backNowButton->setButtonHeight(this->backNowButton->getUnpressedTexture().height);
+    this->backNowButton->setCurrentTexture(this->backNowButton->getUnpressedTexture());
 
-    // DrawRectangle(375, 200, 500, 40, WHITE);
-    // DrawRectangle(375, 300, 500, 40, WHITE);
+    this->loginTextFieldX = 375;
+    this->loginTextFieldY = 200;
+    this->loginTextFieldWidth = 500;
+    this->loginTextFieldHeight = 40;
 
-    this->loginNowX = 375;
-    this->loginNowY = 200;
-    this->loginNowWidth = 500;
-    this->loginNowHeight = 40;
+    this->loginTextFieldRec = {375, 200, 500, 40};  // Type Rectangle
 
-    this->registerNowX = 375;
-    this->registerNowY = 300;
-    this->registerNowWidth = 500;
-    this->registerNowHeight = 40;
+    this->passwordTextFieldX = 375;
+    this->passwordTextFieldY = 300;
+    this->passwordTextFieldWidth = 500;
+    this->passwordTextFieldHeight = 40;
+
+    this->passwordTextFieldRec = {375, 300, 500, 40}; // Type: Rectangle
 };
 
 /*******************************************************
@@ -48,17 +49,16 @@ LoginScreen::LoginScreen() {
  *******************************************************/
 LoginScreen::~LoginScreen() {
     delete this->loginNowButton;
-    delete this->registerNowButton;
+    delete this->backNowButton;
+
 };
 
 /*******************************************************
  * DrawScreen() function will draw the login screen
  *******************************************************/
 void LoginScreen::DrawScreen() {
-    // ClearBackground(BLACK); -- Using for debugging purposes.
     LoginDisplay() ;
     LoginLogic();
-   
 };
 
 /*******************************************************
@@ -66,7 +66,29 @@ void LoginScreen::DrawScreen() {
  * the login screen.
  *******************************************************/
 void LoginScreen::LoginLogic() {
+    if(GetMouseX() >= this->loginNowButton->getDrawPositionX() && GetMouseX() <= this->loginNowButton->getDrawPositionX() + this->loginNowButton->getButtonWidth() && GetMouseY() >= this->loginNowButton->getDrawPositionY() && GetMouseY() <= this->loginNowButton->getDrawPositionY() + this->loginNowButton->getButtonHeight()) {
+        this->loginNowButton->setCurrentTexture(this->loginNowButton->getPressedTexture());
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            // TODO: Add logic here (What to do next...)
+        }
+    } else {
+        this->loginNowButton->setCurrentTexture(this->loginNowButton->getUnpressedTexture());
+        // TODO: Add logic here
+    }
 
+    // TODO: Add logic here
+    
+
+    if(GetMouseX() >= this->backNowButton->getDrawPositionX() && GetMouseX() <= this->backNowButton->getDrawPositionX() + this->backNowButton->getButtonWidth() && GetMouseY() >= this->backNowButton->getDrawPositionY() && GetMouseY() <= this->backNowButton->getDrawPositionY() + this->backNowButton->getButtonHeight()) {
+        this->backNowButton->setCurrentTexture(this->backNowButton->getPressedTexture());
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            // TODO: Go back to the main menu
+        }
+    } else {
+        this->backNowButton->setCurrentTexture(this->backNowButton->getUnpressedTexture());
+        // TODO: Stay on the login screen
+    }
+    // TODO: Add logic here
 };
 
 /*******************************************************
@@ -77,10 +99,10 @@ void LoginScreen::LoginLogic() {
 void LoginScreen::LoginDisplay() {
     DrawTexture(this->getBackgroundTexture(), 0, 0, WHITE);
     DrawTexture(this->loginNowButton->getCurrentTexture(), this->loginNowButton->getDrawPositionX(), this->loginNowButton->getDrawPositionY(), WHITE);
-    DrawTexture(this->registerNowButton->getCurrentTexture(), this->registerNowButton->getDrawPositionX(), this->registerNowButton->getDrawPositionY(), WHITE);
+    DrawTexture(this->backNowButton->getCurrentTexture(), this->backNowButton->getDrawPositionX(), this->backNowButton->getDrawPositionY(), WHITE);
 
-    DrawRectangle(this->loginNowX, this->loginNowY, this->loginNowWidth, this->loginNowHeight, WHITE);
-    DrawRectangle(this->registerNowX, this->registerNowY, this->registerNowWidth, this->registerNowHeight, WHITE);
+    DrawRectangle(this->loginTextFieldX, this->loginTextFieldY, this->loginTextFieldWidth, this->loginTextFieldHeight, WHITE);
+    DrawRectangle(this->passwordTextFieldX, this->passwordTextFieldY, this->passwordTextFieldWidth, this->passwordTextFieldHeight, WHITE);
 
     DrawRectangleLines(375, 200, 500, 40, BLACK);
     DrawRectangleLines(374, 199, 500, 40, BLACK);
@@ -91,9 +113,4 @@ void LoginScreen::LoginDisplay() {
     DrawRectangleLines(374, 299, 500, 40, BLACK);
     DrawRectangleLines(373, 298, 500, 40, BLACK);
     DrawRectangleLines(372, 297, 500, 40, BLACK);
-
-
-    DrawRectangleLines(375, 300, 500, 40, BLACK);
-
-
 };

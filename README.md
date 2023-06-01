@@ -18,6 +18,12 @@ mkdir build && cd build
 cmake -S .. -B . -Wno-dev
 ```
 
+**'-Wno-dev' is just a compiler flag needed to avoid a deprecation**
+Or more simply use the following command: (Builds executable in build directory)
+```bash
+cmake .. -Wno-dev
+```
+
 ### Now compile the built game into a executable file:
 3.
 ```bash

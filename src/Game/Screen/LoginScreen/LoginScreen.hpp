@@ -34,18 +34,20 @@ class LoginScreen : protected Screen {
 
     private:
         Button *loginNowButton;
-        Button *registerNowButton;
+        Button *backNowButton;
         Texture2D backgroundTexture;
 
-        int loginNowX;
-        int loginNowY;
-        int loginNowWidth;
-        int loginNowHeight;
+        int loginTextFieldX;
+        int loginTextFieldY;
+        int loginTextFieldWidth;
+        int loginTextFieldHeight;
+        Rectangle loginTextFieldRec;
 
-        int registerNowX;
-        int registerNowY;
-        int registerNowWidth;
-        int registerNowHeight;
+        int passwordTextFieldX;
+        int passwordTextFieldY;
+        int passwordTextFieldWidth;
+        int passwordTextFieldHeight;
+        Rectangle passwordTextFieldRec;
 };
 
 
