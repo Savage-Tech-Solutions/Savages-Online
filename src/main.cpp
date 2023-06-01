@@ -15,10 +15,9 @@ int main(int argc, char* argv[]) {
     char path_save[1024];
     char cwd[1024];
     char* p;
-    if(!(p = strrchr(argv[0], '/')))
+    if(!(p = strrchr(argv[0], '/'))) {
         getcwd(cwd, sizeof(cwd));
-    else
-    {
+    } else {
         *p = '\0';
         getcwd(path_save, sizeof(path_save));
         chdir(argv[0]);
@@ -76,4 +75,4 @@ int main(int argc, char* argv[]) {
     //--------------------------------------------------------------------------------------
 
     return 0;
-}
+};
