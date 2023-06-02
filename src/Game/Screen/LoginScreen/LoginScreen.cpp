@@ -42,6 +42,13 @@ LoginScreen::LoginScreen() {
     this->passwordTextFieldHeight = 40;
 
     this->passwordTextFieldRec = {375, 300, 500, 40}; // Type: Rectangle
+
+    this->userData = {
+        {"user", this->username},
+        {"pass", this->password}
+    };
+
+    std::cout << userData.dump(4) << std::endl;
 };
 
 /*******************************************************

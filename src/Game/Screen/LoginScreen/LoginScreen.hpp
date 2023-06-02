@@ -18,6 +18,7 @@
 // External Libraries
 // ---included in Screen.hpp---
 
+
 class LoginScreen : protected Screen {
 
     public:
@@ -48,6 +49,11 @@ class LoginScreen : protected Screen {
         int passwordTextFieldWidth;
         int passwordTextFieldHeight;
         Rectangle passwordTextFieldRec;
+
+        std::string username;
+        std::string password;
+
+        json userData;
 };
 
 
