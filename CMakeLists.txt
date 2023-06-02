@@ -44,37 +44,18 @@ if(NOT CURL_FOUND)
   endif()
 endif()
 
-# JSON LIBRARY
-# set(JSON_VERSION 3.11.2)
-# find_package(json ${JSON_VERSION} REQUIRED)
-# if(NOT JSON_FOUND)
-#   include(FetchContent)
-#   FetchContent_Declare(
-# 	json
-# 	DOWNLOAD_EXTRACT_TIMESTAMP OFF
-# 	URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz
-#   )
-#   FetchContent_GetProperties(json)
-#   if (NOT json_POPULATED)
-#   	set(FETCHCONTENT_QUIET NO)
-#   	FetchContent_Populate(json)
-# 	set(BUILD_CURL_EXE OFF CACHE BOOL "" FORCE)
-# 	add_subdirectory(${json_SOURCE_DIR} ${json_BINARY_DIR})
-#   endif()
-# endif()
-
 FetchContent_Declare(raylib URL https://github.com/raysan5/raylib/archive/refs/tags/4.5.0.tar.gz)
 FetchContent_GetProperties(raylib)
 
 FetchContent_Declare(curl URL https://curl.se/download/curl-7.64.1.tar.gz)
 FetchContent_GetProperties(CURL)
 
-# FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
-# FetchContent_MakeAvailable(json)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
+FetchContent_MakeAvailable(json)
 
 file(GLOB_RECURSE CPP_SOURCES src/*.cpp)
 
 add_executable(${PROJECT_NAME} ${CPP_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} raylib curl)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR}+"/../include/**")
+target_link_libraries(${PROJECT_NAME} raylib curl nlohmann_json::nlohmann_json)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR}/../include/**)

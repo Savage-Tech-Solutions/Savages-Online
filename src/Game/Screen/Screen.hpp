@@ -16,6 +16,8 @@
 
 // External Libraries
 #include <raylib.h>
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 
 /*************************************************
 * Class Screen
