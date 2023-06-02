@@ -38,15 +38,197 @@ static size_t WriteMemoryCallback(char *contents, size_t size, size_t nmemb, voi
 };
 
 /*************************************************************
- * TODO:// Finish Documentation
+ * This function is used to globally initialize curl. We must
+ * wrap this function, and we cannot include raylib.h and
+ * curl.h in the same file because curl.h includes windows.h
  *************************************************************/
 void CurlGlobalInit(void) {
-    CurlGlobalInit();
+    curl_global_init(CURL_GLOBAL_ALL);
 };
 
 /*************************************************************
- * TODO:// Finish Documentation
+ * This function is used to globally cleanup curl. We must
+ * also wrap this function, for the same reason as above.
  *************************************************************/
 void CurlGlobalCleanup(void) {
     curl_global_cleanup();
 };
+
+/*************************************************************
+ * This function will allow an account to be created using
+ * curl to make an HTTP POST request from the C++ game client
+ * to the node js web server. The passed json object will be
+ * converted into a string before being sent to the server.
+ *************************************************************/
+// json CurlCreateAccount(json registration) {
+    
+//     CURL *curl = curl_easy_init();       // Initialization
+//     CURLcode result;
+
+//     MemoryStruct chunk;
+//     chunk.memory = (char*) malloc(1);
+//     chunk.size = 0;
+
+//     /*******************************************************************************************/
+//     /***********************************************
+//      * This is for debugging purposes only.
+//     ***********************************************/
+//     std::cout << registration << std::endl << std::endl;                   // Output json object.
+//     std::cout << registration.dump() << std::endl << std::endl;            // Output dumped json object.
+//     std::cout << "is String? " << registration.is_string() << std::endl;   // Find out if json object is a string.
+//     std::cout << "is object?" << registration.is_object() << std::endl;    // Find out if json object is an object.
+
+//     std::string dataForSending = json::parse(registration);      // Parse json object into a string.
+//     std::cout << dataForSending << std::endl;             // Output parsed contents.
+
+//     dataForSending = json::parse(registration).dump();   // Parse json object and dump json object into a string.
+//     std::cout << dataForSending << std::endl;            // Output parsed dumped contents as a string.
+
+//     dataForSending = registration.dump();               // Dump json object into a string.
+//     std::cout << dataForSending << std::endl;           // Output parsed dumped contents as a string.
+//     /***********************************************
+//      * End of debugging code block.
+//     ***********************************************/
+//     /*******************************************************************************************/
+
+//     if(!curl){
+//         std::cout << "\nError initializing curl!\n\n";
+//     }
+    
+//     curl_slist *headers = NULL;
+//     headers = curl_slist_append(headers, "Accept: application/json");
+//     headers = curl_slist_append(headers, "Content-Type: application/json; charset=utf-8");
+
+//     // Set options
+//     curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3000/users");
+//     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers); 
+//     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, dataForSending.c_str());
+//     /* send all data to this function  */
+//     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
+//     /* we pass our 'chunk' struct to the callback function */
+//     curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+
+//     // Perform action
+//     result = curl_easy_perform(curl);
+
+//     // Output a message if something went wrong!
+//     if(result != CURLE_OK){
+//         std::cout << "\nURL Downloading issue. -- " << curl_easy_strerror(result) << std::endl << std::endl;
+//     };
+
+//     // Output the data received back from the server (RAW FORMAT).
+//     std::cout << "Data Received is: " << chunk.memory << std::endl;
+//     std::cout << "Data Size is: " << chunk.size << std::endl << std::endl;
+
+//     /*******************************************************************************************/
+//     /*********************************************************************
+//      * Nested function to convert a char* into a referenced json object.   // DEBUGGING PURPOSES
+//     *********************************************************************/
+//     void to_json(json& jsonOBJECT, char*& charOBJECT) {
+//         jsonOBJECT = json::parse(charOBJECT);
+//     };
+//     json receivedData;
+//     to_json(receivedData, chunk.memory);
+//     std::cout << receivedData << std::endl;  // Output the json object.
+
+//     std::string data(chunk.memory, chunk.size);
+//     std::cout << data << std::endl;
+//     /*******************************************************************************************/
+
+//     curl_easy_reset(curl);     // reset easy options
+//     curl_easy_cleanup(curl);   // always clean up curl
+
+//     // Return whats sent back from server.
+//     return receivedData;
+// };
+
+
+// /*************************************************************
+//  * This function is used to to login a user into the game. Two
+//  * string variables are passed by value to create a json
+//  * encoded concatenated string to send to the server to check
+//  * if a user exist. The server will send a string back, which
+//  * will be converted into a string before having that strings
+//  * memory address returned.
+//  *************************************************************/
+// json CurlLoginAccount(json login) {
+    
+//     CURL *curl = curl_easy_init();       // Initialization
+//     CURLcode result;
+
+//     MemoryStruct chunk;
+//     chunk.memory = (char*) malloc(1);
+//     chunk.size = 0;
+
+//     /*******************************************************************************************/
+//     /***********************************************
+//      * This is for debugging purposes only.
+//     ***********************************************/
+//     std::cout << login << std::endl << std::endl;                   // Output json object.
+//     std::cout << login.dump() << std::endl << std::endl;            // Output dumped json object.
+//     std::cout << "is String? " << login.is_string() << std::endl;   // Find out if json object is a string.
+//     std::cout << "is object?" << login.is_object() << std::endl;    // Find out if json object is an object.
+
+//     std::string dataForSending = json::parse(login);    // Parse json object into a string.
+//     std::cout << dataForSending << std::endl;           // Output parsed contents.
+
+//     dataForSending = json::parse(login).dump();   // Parse json object and dump json object into a string.
+//     std::cout << dataForSending << std::endl;     // Output parsed dumped contents as a string.
+
+//     dataForSending = login.dump();               // Dump json object into a string.
+//     std::cout << dataForSending << std::endl;    // Output parsed dumped contents as a string.
+//     /***********************************************
+//      * End of debugging code block.
+//     ***********************************************/
+//     /*******************************************************************************************/
+
+//     if(!curl){
+//         std::cout << "\nError initializing curl!\n\n";
+//     }
+    
+//     curl_slist *headers = NULL;
+//     headers = curl_slist_append(headers, "Accept: application/json");
+//     headers = curl_slist_append(headers, "Content-Type: application/json; charset=utf-8");
+
+//     // Set options
+//     curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3000/users");
+//     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers); 
+//     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, login.dump().c_str());
+//     /* send all data to this function  */
+//     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
+//     /* we pass our 'chunk' struct to the callback function */
+//     curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+
+//     // Perform action
+//     result = curl_easy_perform(curl);
+
+//     // Output a message if something went wrong!
+//     if(result != CURLE_OK){
+//         std::cout << "\nURL Downloading issue. -- " << curl_easy_strerror(result) << std::endl << std::endl;
+//     };
+
+//     // Output the data received back from the server (RAW FORMAT).
+//     std::cout << "Data Received is: " << chunk.memory << std::endl;
+//     std::cout << "Data Size is: " << chunk.size << std::endl << std::endl;
+
+//     /*******************************************************************************************/
+//     /********************************************************************
+//      * Nested function to convert a char* into a referenced json object.   // DEBUGGING PURPOSES
+//     ********************************************************************/
+//     void to_json(json& jsonOBJECT, char*& charOBJECT) {
+//         jsonOBJECT = json::parse(charOBJECT);
+//     };
+//     json receivedData;
+//     to_json(receivedData, chunk.memory);
+//     std::cout << receivedData << std::endl;  // Output the json object.
+
+//     std::string data(chunk.memory, chunk.size);
+//     std::cout << data << std::endl;
+//     /*******************************************************************************************/
+
+//     curl_easy_reset(curl);     // reset easy options
+//     curl_easy_cleanup(curl);   // always clean up curl
+
+//     // Return whats sent back from server.
+//     return receivedData;
+// };
