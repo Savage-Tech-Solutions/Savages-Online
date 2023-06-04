@@ -30,6 +30,26 @@ class LoginScreen : protected Screen {
         void LoginLogic();
         void LoginDisplay();
 
+        int getLoginTextFieldX();
+        int getLoginTextFieldY();
+        int getLoginTextFieldWidth();
+        int getLoginTextFieldHeight();
+
+        int getPasswordTextFieldX();
+        int getPasswordTextFieldY();
+        int getPasswordTextFieldWidth();
+        int getPasswordTextFieldHeight();
+
+        int getLoginNowButtonX();
+        int getLoginNowButtonY();
+        int getLoginNowButtonWidth();
+        int getLoginNowButtonHeight();
+
+        int getBackNowButtonX();
+        int getBackNowButtonY();
+        int getBackNowButtonWidth();
+        int getBackNowButtonHeight();
+
     protected:
         // N/A
 

@@ -12,7 +12,7 @@
  *******************************************************/
 LoginScreen::LoginScreen() {
     this->loginNowButton = new Button();
-    this->loginNowButton->setDrawPositionX(300);
+    this->loginNowButton->setDrawPositionX(700);
     this->loginNowButton->setDrawPositionY(500);
     this->loginNowButton->setUnpressedTexture(LoadTexture("../resources/GUI/buttons/01/button_unpressed.png"));
     this->loginNowButton->setPressedTexture(LoadTexture("../resources/GUI/buttons/01/button_pressed.png"));
@@ -21,7 +21,7 @@ LoginScreen::LoginScreen() {
     this->loginNowButton->setCurrentTexture(this->loginNowButton->getUnpressedTexture());
 
     this->backNowButton = new Button();
-    this->backNowButton->setDrawPositionX(700);
+    this->backNowButton->setDrawPositionX(300);
     this->backNowButton->setDrawPositionY(500);
     this->backNowButton->setUnpressedTexture(LoadTexture("../resources/GUI/buttons/01/button_unpressed.png"));
     this->backNowButton->setPressedTexture(LoadTexture("../resources/GUI/buttons/01/button_pressed.png"));
@@ -105,8 +105,12 @@ void LoginScreen::LoginLogic() {
  *******************************************************/
 void LoginScreen::LoginDisplay() {
     DrawTexture(this->getBackgroundTexture(), 0, 0, WHITE);
+
     DrawTexture(this->loginNowButton->getCurrentTexture(), this->loginNowButton->getDrawPositionX(), this->loginNowButton->getDrawPositionY(), WHITE);
+    DrawText("Login", this->getLoginNowButtonX() + 110, this->getLoginNowButtonY() + 15, 26, WHITE);
+
     DrawTexture(this->backNowButton->getCurrentTexture(), this->backNowButton->getDrawPositionX(), this->backNowButton->getDrawPositionY(), WHITE);
+    DrawText("Back", this->getBackNowButtonX() + 110, this->getBackNowButtonY() + 15, 26, WHITE);
 
     DrawRectangle(this->loginTextFieldX, this->loginTextFieldY, this->loginTextFieldWidth, this->loginTextFieldHeight, WHITE);
     DrawRectangle(this->passwordTextFieldX, this->passwordTextFieldY, this->passwordTextFieldWidth, this->passwordTextFieldHeight, WHITE);
@@ -120,4 +124,72 @@ void LoginScreen::LoginDisplay() {
     DrawRectangleLines(374, 299, 500, 40, BLACK);
     DrawRectangleLines(373, 298, 500, 40, BLACK);
     DrawRectangleLines(372, 297, 500, 40, BLACK);
+};
+
+/*******************************************************************************************/
+/*******************************************
+ * GETTERS FOR DIMENSIONS OF THE COMPONENTS
+********************************************/
+int LoginScreen::getLoginTextFieldX(){
+    return this->loginTextFieldRec.x;
+};
+
+int LoginScreen::getLoginTextFieldY(){
+    return this->loginTextFieldRec.y;
+};
+
+int LoginScreen::getLoginTextFieldWidth(){
+    return this->loginTextFieldRec.width;
+};
+
+int LoginScreen::getLoginTextFieldHeight(){
+    return this->loginTextFieldRec.height;
+};
+
+int LoginScreen::getPasswordTextFieldX(){
+    return this->passwordTextFieldRec.x;
+};
+
+int LoginScreen::getPasswordTextFieldY(){
+    return this->passwordTextFieldRec.y;
+};
+
+int LoginScreen::getPasswordTextFieldWidth(){
+    return this->passwordTextFieldRec.width;
+};
+
+int LoginScreen::getPasswordTextFieldHeight(){
+    return this->passwordTextFieldRec.height;
+};
+
+int LoginScreen::getLoginNowButtonX(){
+    return this->loginNowButton->getDrawPositionX();
+};
+
+int LoginScreen::getLoginNowButtonY(){
+    return this->loginNowButton->getDrawPositionY();
+};
+
+int LoginScreen::getLoginNowButtonWidth(){
+    return this->loginNowButton->getButtonWidth();
+};
+
+int LoginScreen::getLoginNowButtonHeight(){
+    return this->loginNowButton->getButtonHeight();
+};
+
+int LoginScreen::getBackNowButtonX(){
+    return this->backNowButton->getDrawPositionX();
+};
+
+int LoginScreen::getBackNowButtonY(){
+    return this->backNowButton->getDrawPositionY();
+};
+
+int LoginScreen::getBackNowButtonWidth(){
+    return this->backNowButton->getButtonWidth();
+};
+
+int LoginScreen::getBackNowButtonHeight(){
+    return this->backNowButton->getButtonHeight();
 };

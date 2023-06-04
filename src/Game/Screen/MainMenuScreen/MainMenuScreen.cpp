@@ -110,12 +110,24 @@ void MainMenuScreen::MainMenuLogic() {
 *******************************************************/
 void MainMenuScreen::MainMenuDisplay() {
     DrawTexture(this->getBackgroundTexture(), this->getDrawPositionX(), this->getDrawPositionY(), WHITE);
+    
     DrawTexture(this->loginButton->getCurrentTexture(), this->loginButton->getDrawPositionX(), this->loginButton->getDrawPositionY(), WHITE);
+    DrawText("Login", this->loginButton->getDrawPositionX() + 110, this->loginButton->getDrawPositionY() + 15, 26, WHITE);
+
     DrawTexture(this->registerButton->getCurrentTexture(), this->registerButton->getDrawPositionX(), this->registerButton->getDrawPositionY(), WHITE);
+    DrawText("Register", this->registerButton->getDrawPositionX() + 90, this->registerButton->getDrawPositionY() + 15, 26, WHITE);
+
     DrawTexture(this->creditsButton->getCurrentTexture(), this->creditsButton->getDrawPositionX(), this->creditsButton->getDrawPositionY(), WHITE);
+    DrawText("Credits", this->creditsButton->getDrawPositionX() + 95, this->creditsButton->getDrawPositionY() + 15, 26, WHITE);
+
     DrawTexture(this->exitButton->getCurrentTexture(), this->exitButton->getDrawPositionX(), this->exitButton->getDrawPositionY(), WHITE);
+    DrawText("Exit", this->exitButton->getDrawPositionX() + 115, this->exitButton->getDrawPositionY() + 15, 26, WHITE);
 };
 
+/************************************************************************************************/
+/********************************************************
+ * Getters for the main menu screen dimensions
+*********************************************************/
 int MainMenuScreen::getLoginButtonPositionX(){
     return this->loginButton->getDrawPositionX();
 };

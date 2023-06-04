@@ -1,3 +1,5 @@
+# Savages-Online Compilation Documentation:
+
 # Steps to compile the Game:
 ## Starting from the root directory called "Savages-Online"
 
