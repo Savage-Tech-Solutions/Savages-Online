@@ -105,8 +105,12 @@ void LoginScreen::LoginLogic() {
  *******************************************************/
 void LoginScreen::LoginDisplay() {
     DrawTexture(this->getBackgroundTexture(), 0, 0, WHITE);
+
     DrawTexture(this->loginNowButton->getCurrentTexture(), this->loginNowButton->getDrawPositionX(), this->loginNowButton->getDrawPositionY(), WHITE);
+    DrawText("Login", this->getLoginNowButtonX() + 110, this->getLoginNowButtonY() + 15, 26, WHITE);
+
     DrawTexture(this->backNowButton->getCurrentTexture(), this->backNowButton->getDrawPositionX(), this->backNowButton->getDrawPositionY(), WHITE);
+    DrawText("Back", this->getBackNowButtonX() + 110, this->getBackNowButtonY() + 15, 26, WHITE);
 
     DrawRectangle(this->loginTextFieldX, this->loginTextFieldY, this->loginTextFieldWidth, this->loginTextFieldHeight, WHITE);
     DrawRectangle(this->passwordTextFieldX, this->passwordTextFieldY, this->passwordTextFieldWidth, this->passwordTextFieldHeight, WHITE);
@@ -122,6 +126,10 @@ void LoginScreen::LoginDisplay() {
     DrawRectangleLines(372, 297, 500, 40, BLACK);
 };
 
+/*******************************************************************************************/
+/*******************************************
+ * GETTERS FOR DIMENSIONS OF THE COMPONENTS
+********************************************/
 int LoginScreen::getLoginTextFieldX(){
     return this->loginTextFieldRec.x;
 };
