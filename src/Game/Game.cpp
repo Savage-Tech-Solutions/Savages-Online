@@ -47,6 +47,9 @@ Game::Game() {
 
     this->loadingCounter = 0;
 
+    this->registerSuccessCounter = 0;
+    this->isRegisterSuccess = false;
+
 };
 
 /*************************************************
@@ -62,17 +65,37 @@ Game::~Game(){
 bool Game::run(CurrentGameState *gameState) {
     switch (*gameState){
         case LOADING_SCREEN:
+
+            /************************************/
             if(loadingCounter < 150) {
+                *gameState = LOADING_SCREEN;
                 loadingCounter++;
             } else {
                 *gameState = MAIN_MENU_SCREEN;
             }
-            loadingScreen->DrawScreen();
+            /************************************/
+
+            /************************************/
+            switch (*gameState){
+                case LOADING_SCREEN:
+                    loadingScreen->DrawScreen();
+                    break;
+                case MAIN_MENU_SCREEN:
+                    mainMenuScreen->DrawScreen();
+                    loadingCounter = 0;
+                    break;
+                default:
+                    loadingScreen->DrawScreen();
+                    std::cout << "Something went wrong in loading screen CASE Statement in Game::run()" << std::endl;
+                    break;
+            };
+            /************************************/
+
             return true;
             break;
         case MAIN_MENU_SCREEN:
-            /************************************************************************************************************************************************************************/
 
+            /************************************************************************************************************************************************************************/
             if (GetMouseX() >= this->mainMenuScreen->getLoginButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getLoginButtonPositionX() + this->mainMenuScreen->getLoginButtonWidth() &&
                 GetMouseY() >= this->mainMenuScreen->getLoginButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getLoginButtonPositionY() + this->mainMenuScreen->getLoginButtonHeight()) {
                 if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
@@ -104,11 +127,9 @@ bool Game::run(CurrentGameState *gameState) {
             } else {
                 *gameState = MAIN_MENU_SCREEN;
             }
-
             /*************************************************************************************************************************************************************************/
 
             /******************************************/
-
             if(*gameState == MAIN_MENU_SCREEN) {
                 mainMenuScreen->DrawScreen();
             } else if(*gameState == LOGIN_SCREEN) {
@@ -120,14 +141,13 @@ bool Game::run(CurrentGameState *gameState) {
             } else if(*gameState == EXIT_SCREEN) {
                 return false;
             }
-
             /*******************************************/
 
             return true;
             break;
         case LOGIN_SCREEN:
+
             /********************************************************************************************************************************************************/
-            
             if (GetMouseX() >= this->loginScreen->getBackNowButtonX() && GetMouseX() <= this->loginScreen->getBackNowButtonX() + this->loginScreen->getBackNowButtonWidth() &&
                 GetMouseY() >= this->loginScreen->getBackNowButtonY() && GetMouseY() <= this->loginScreen->getBackNowButtonY() + this->loginScreen->getBackNowButtonHeight()) {
                 
@@ -148,11 +168,9 @@ bool Game::run(CurrentGameState *gameState) {
             } else {
                 *gameState = LOGIN_SCREEN;
             }
-
             /***********************************************************************************************************************************************************/
 
             /***********************************************/
-            
             if(*gameState == LOGIN_SCREEN) {
                 loginScreen->DrawScreen();
             } else if (*gameState == MAIN_MENU_SCREEN) {
@@ -162,13 +180,64 @@ bool Game::run(CurrentGameState *gameState) {
             } else {
                 loginScreen->DrawScreen();
             }
-
             /**********************************************/
+
+            /**********************************************************************************************************/
+            /***************************** IS ENTRY FROM REGISTRATION SCREEN??? ***************************************/
+            /**********************************************************************************************************/
+            if(isRegisterSuccess){
+                if(isRegisterSuccess && registerSuccessCounter <= 150){
+                    DrawText("Register Success!", 10, 10, 24, BLACK);
+                    registerSuccessCounter++;
+                } else {
+                    isRegisterSuccess = false;
+                    registerSuccessCounter = 0;
+                }
+            }
+            /**********************************************************************************************************/
+            /**********************************************************************************************************/
+            /**********************************************************************************************************/
 
             return true;
             break;
         case REGISTER_SCREEN:
-            this->registerScreen->DrawScreen();
+
+            /********************************************************************************************************************************************************/
+            if (GetMouseX() >= this->registerScreen->getBackButtonX() && GetMouseX() <= this->registerScreen->getBackButtonX() + this->registerScreen->getBackButtonWidth() &&
+                GetMouseY() >= this->registerScreen->getBackButtonY() && GetMouseY() <= this->registerScreen->getBackButtonY() + this->registerScreen->getBackButtonHeight()) {
+                
+                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+                    *gameState = MAIN_MENU_SCREEN;
+                } else {
+                    *gameState = REGISTER_SCREEN;
+                }
+
+            } else if(GetMouseX() >= this->registerScreen->getRegisterButtonX() && GetMouseX() <= this->registerScreen->getRegisterButtonX() + this->registerScreen->getRegisterButtonWidth() &&
+                GetMouseY() >= this->registerScreen->getRegisterButtonY() && GetMouseY() <= this->registerScreen->getRegisterButtonY() + this->registerScreen->getRegisterButtonHeight()) {
+                    
+                    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+                        *gameState = LOGIN_SCREEN;
+                    } else {
+                        *gameState = REGISTER_SCREEN;
+                    }
+            } else {
+                *gameState = REGISTER_SCREEN;
+            }
+            /***********************************************************************************************************************************************************/
+
+            /***********************************************/
+            if(*gameState == REGISTER_SCREEN) {
+                this->registerScreen->DrawScreen();
+            } else if (*gameState == MAIN_MENU_SCREEN) {
+                this->mainMenuScreen->DrawScreen();
+            } else if(*gameState == LOGIN_SCREEN) {
+                this->loginScreen->DrawScreen();
+                this->isRegisterSuccess = true;
+            } else {
+                this->registerScreen->DrawScreen();
+            }
+            /**********************************************/
+
             return true;
             break;
         case CREDITS_SCREEN:
