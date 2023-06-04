@@ -93,7 +93,10 @@ class Game {
         CreditsScreen *creditsScreen;
         InGameScreen *inGameScreen;
         CurrentGameState *currentGameState;
-        int loadingCounter;
+        
+        int loadingCounter;          // Loading Screen Counter
+        int registerSuccessCounter;  // Counter for showing registration success on login menu for a brief period of time.
+        bool isRegisterSuccess;      // Boolean for showing registration success on login menu.
 };
 
 #endif /* Game_hpp */
