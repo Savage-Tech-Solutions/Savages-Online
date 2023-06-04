@@ -71,53 +71,100 @@ bool Game::run(CurrentGameState *gameState) {
             return true;
             break;
         case MAIN_MENU_SCREEN:
+            /************************************************************************************************************************************************************************/
+
             if (GetMouseX() >= this->mainMenuScreen->getLoginButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getLoginButtonPositionX() + this->mainMenuScreen->getLoginButtonWidth() &&
-                GetMouseY() >= this->mainMenuScreen->getLoginButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getLoginButtonPositionY() + this->mainMenuScreen->getLoginButtonHeight())
-            {
-                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+                GetMouseY() >= this->mainMenuScreen->getLoginButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getLoginButtonPositionY() + this->mainMenuScreen->getLoginButtonHeight()) {
+                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     *gameState = LOGIN_SCREEN;
                 } else {
                     *gameState = MAIN_MENU_SCREEN;
                 }
-            }
-            else if (GetMouseX() >= this->mainMenuScreen->getRegisterButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getRegisterButtonPositionX() + this->mainMenuScreen->getRegisterButtonWidth() &&
-                     GetMouseY() >= this->mainMenuScreen->getRegisterButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getRegisterButtonPositionY() + this->mainMenuScreen->getRegisterButtonHeight())
-            {
+            } else if (GetMouseX() >= this->mainMenuScreen->getRegisterButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getRegisterButtonPositionX() + this->mainMenuScreen->getRegisterButtonWidth() &&
+                     GetMouseY() >= this->mainMenuScreen->getRegisterButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getRegisterButtonPositionY() + this->mainMenuScreen->getRegisterButtonHeight()) {
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     *gameState = REGISTER_SCREEN;
                 } else {
                     *gameState = MAIN_MENU_SCREEN;
                 }
-            }
-            else if (GetMouseX() >= this->mainMenuScreen->getCreditsButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getCreditsButtonPositionX() + this->mainMenuScreen->getCreditsButtonWidth() &&
-                     GetMouseY() >= this->mainMenuScreen->getCreditsButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getCreditsButtonPositionY() + this->mainMenuScreen->getCreditsButtonHeight())
-            {
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-                {
+            } else if (GetMouseX() >= this->mainMenuScreen->getCreditsButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getCreditsButtonPositionX() + this->mainMenuScreen->getCreditsButtonWidth() &&
+                GetMouseY() >= this->mainMenuScreen->getCreditsButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getCreditsButtonPositionY() + this->mainMenuScreen->getCreditsButtonHeight()) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     *gameState = CREDITS_SCREEN;
-                }
-                else
-                {
+                } else {
                     *gameState = MAIN_MENU_SCREEN;
                 }
-            }
-            else if (GetMouseX() >= this->mainMenuScreen->getExitButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getExitButtonPositionX() + this->mainMenuScreen->getExitButtonWidth() &&
-                     GetMouseY() >= this->mainMenuScreen->getExitButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getExitButtonPositionY() + this->mainMenuScreen->getExitButtonHeight())
-            {
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-                {
+            } else if (GetMouseX() >= this->mainMenuScreen->getExitButtonPositionX() && GetMouseX() <= this->mainMenuScreen->getExitButtonPositionX() + this->mainMenuScreen->getExitButtonWidth() &&
+                GetMouseY() >= this->mainMenuScreen->getExitButtonPositionY() && GetMouseY() <= this->mainMenuScreen->getExitButtonPositionY() + this->mainMenuScreen->getExitButtonHeight()) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
                     *gameState = EXIT_SCREEN;
-                }
-                else
-                {
+                } else {
                     *gameState = MAIN_MENU_SCREEN;
                 }
+            } else {
+                *gameState = MAIN_MENU_SCREEN;
             }
-            mainMenuScreen->DrawScreen();
+
+            /*************************************************************************************************************************************************************************/
+
+            /******************************************/
+
+            if(*gameState == MAIN_MENU_SCREEN) {
+                mainMenuScreen->DrawScreen();
+            } else if(*gameState == LOGIN_SCREEN) {
+                loginScreen->DrawScreen();
+            } else if(*gameState == REGISTER_SCREEN) {
+                registerScreen->DrawScreen();
+            } else if(*gameState == CREDITS_SCREEN) {
+                creditsScreen->DrawScreen();
+            } else if(*gameState == EXIT_SCREEN) {
+                return false;
+            }
+
+            /*******************************************/
+
             return true;
             break;
         case LOGIN_SCREEN:
-            this->loginScreen->DrawScreen();
+            /********************************************************************************************************************************************************/
+            
+            if (GetMouseX() >= this->loginScreen->getBackNowButtonX() && GetMouseX() <= this->loginScreen->getBackNowButtonX() + this->loginScreen->getBackNowButtonWidth() &&
+                GetMouseY() >= this->loginScreen->getBackNowButtonY() && GetMouseY() <= this->loginScreen->getBackNowButtonY() + this->loginScreen->getBackNowButtonHeight()) {
+                
+                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+                    *gameState = MAIN_MENU_SCREEN;
+                } else {
+                    *gameState = LOGIN_SCREEN;
+                }
+
+            } else if(GetMouseX() >= this->loginScreen->getLoginNowButtonX() && GetMouseX() <= this->loginScreen->getLoginNowButtonX() + this->loginScreen->getLoginNowButtonWidth() &&
+                GetMouseY() >= this->loginScreen->getLoginNowButtonY() && GetMouseY() <= this->loginScreen->getLoginNowButtonY() + this->loginScreen->getLoginNowButtonHeight()) {
+                    
+                    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
+                        *gameState = GAME_SCREEN;
+                    } else {
+                        *gameState = LOGIN_SCREEN;
+                    }
+            } else {
+                *gameState = LOGIN_SCREEN;
+            }
+
+            /***********************************************************************************************************************************************************/
+
+            /***********************************************/
+            
+            if(*gameState == LOGIN_SCREEN) {
+                loginScreen->DrawScreen();
+            } else if (*gameState == MAIN_MENU_SCREEN) {
+                mainMenuScreen->DrawScreen();
+            } else if(*gameState == GAME_SCREEN) {
+                inGameScreen->DrawScreen();
+            } else {
+                loginScreen->DrawScreen();
+            }
+
+            /**********************************************/
+
             return true;
             break;
         case REGISTER_SCREEN:

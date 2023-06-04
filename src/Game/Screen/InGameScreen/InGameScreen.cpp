@@ -25,7 +25,8 @@ InGameScreen::~InGameScreen() {
  * DrawScreen() function will draw the credits screen
  ******************************************************/
 void InGameScreen::DrawScreen() {
-    DrawTexture(this->getBackgroundTexture(), this->getDrawPositionX(), this->getDrawPositionY(), WHITE);
+    InGameDisplay();
+    // InGameLogic();
 };
 
 /*******************************************************
@@ -34,7 +35,7 @@ void InGameScreen::DrawScreen() {
  * houses, etc.
  ******************************************************/
 void InGameScreen::DrawFrontMap() {
-    std::cout << "DrawFrontMap() function being called..." << std::endl;
+    ClearBackground(BLUE);
 };
 
 /*******************************************************
@@ -43,7 +44,7 @@ void InGameScreen::DrawFrontMap() {
  * houses, ground textures, etc.
  ******************************************************/
 void InGameScreen::DrawBackMap() {
-    std::cout << "DrawBackMap() function being called..." << std::endl;
+    ClearBackground(GREEN);
 };
 
 /*******************************************************
@@ -59,5 +60,7 @@ void InGameScreen::InGameLogic() {
  * to the screen by the DrawScreen() function.
  ******************************************************/
 void InGameScreen::InGameDisplay() {
-    std::cout << "InGameDisplay() function being called..." << std::endl;
+    this->DrawBackMap();
+    this->DrawFrontMap();
+    DrawTexture(this->getBackgroundTexture(), 0, 0, WHITE);
 };
