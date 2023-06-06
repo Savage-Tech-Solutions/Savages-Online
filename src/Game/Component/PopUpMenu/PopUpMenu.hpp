@@ -5,24 +5,21 @@
  * DESCRIPTION : // TODO:: Finish Documentation
  **************************************************************/
 
-#ifndef main_hpp
-#define main_hpp
-
 // System Libraries
-#include <unistd.h>
-#include <iostream>
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <cstring>
-using std::strchr;
 
 // User Libraries
-#include "Game/Game.hpp"
-#include "API/api.hpp"
 
 // External Libraries
-#include "raylib.h"
-//#include "nlohmann/json.hpp"
 
-#endif /* main_hpp */
+#ifndef PopUpMenu_hpp
+#define PopUpMenu_hpp
+
+class PopUpMenu {
+    public:
+        PopUpMenu();
+        ~PopUpMenu();
+};
+
+
+
+#endif /* PopUpMenu_hpp */

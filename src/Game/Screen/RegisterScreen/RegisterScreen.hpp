@@ -1,8 +1,8 @@
 /* ************************************************************
- * PROGRAMMER  : // TODO:// Finish Documentation
+ * PROGRAMMER  : // TODO: Finish Documentation
  * PROJECT     : Savages-Online
  * VERSION     : 0.0.1
- * DESCRIPTION : // TODO:: Finish Documentation
+ * DESCRIPTION : // TODO: Finish Documentation
  **************************************************************/
 
 #ifndef RegisterScreen_hpp
@@ -13,7 +13,7 @@
 
 // User Libraries
 #include "../Screen.hpp"
-#include "../ButtonComponent/Button.hpp"
+#include "../../Component/Button/Button.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---

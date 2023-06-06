@@ -1,0 +1,154 @@
+(base) ➜  Savages-Online git:(bryce) ✗ mkdir build
+(base) ➜  Savages-Online git:(bryce) ✗ cd build
+(base) ➜  build git:(bryce) ✗ cmake .. -Wno-dev
+-- The C compiler identification is AppleClang 14.0.0.14000029
+-- The CXX compiler identification is AppleClang 14.0.0.14000029
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Populating raylib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-subbuild
+[ 12%] Creating directories for 'raylib-populate'
+[ 25%] Performing download step (download, verify and extract) for 'raylib-populate'
+-- Downloading...
+   dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-subbuild/raylib-populate-prefix/src/4.5.0.tar.gz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://github.com/raysan5/raylib/archive/refs/tags/4.5.0.tar.gz'
+-- Downloading... done
+-- extracting...
+     src='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-subbuild/raylib-populate-prefix/src/4.5.0.tar.gz'
+     dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-src'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 37%] No patch step for 'raylib-populate'
+[ 50%] No configure step for 'raylib-populate'
+[ 62%] No build step for 'raylib-populate'
+[ 75%] No install step for 'raylib-populate'
+[ 87%] No test step for 'raylib-populate'
+[100%] Completed 'raylib-populate'
+[100%] Built target raylib-populate
+-- Performing Test COMPILER_HAS_THOSE_TOGGLES
+-- Performing Test COMPILER_HAS_THOSE_TOGGLES - Success
+-- Testing if -Werror=pointer-arith can be used -- compiles
+-- Testing if -Werror=implicit-function-declaration can be used -- compiles
+-- Testing if -fno-strict-aliasing can be used -- compiles
+-- Using raylib's GLFW
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Including Cocoa support
+-- Audio Backend: miniaudio
+-- Building raylib static library
+-- Generated build type: Release
+-- Compiling with the flags:
+--   PLATFORM=PLATFORM_DESKTOP
+--   GRAPHICS=GRAPHICS_API_OPENGL_33
+-- Found CURL: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libcurl.tbd (found suitable version "7.64.1", minimum required is "7.64.1")  
+-- Populating json
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-subbuild
+[ 11%] Creating directories for 'json-populate'
+[ 22%] Performing download step (download, verify and extract) for 'json-populate'
+-- Downloading...
+   dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-subbuild/json-populate-prefix/src/json.tar.xz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz'
+-- [download 15% complete]
+-- [download 30% complete]
+-- [download 60% complete]
+-- [download 75% complete]
+-- [download 100% complete]
+-- Downloading... done
+-- extracting...
+     src='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-subbuild/json-populate-prefix/src/json.tar.xz'
+     dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-src'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[ 33%] No update step for 'json-populate'
+[ 44%] No patch step for 'json-populate'
+[ 55%] No configure step for 'json-populate'
+[ 66%] No build step for 'json-populate'
+[ 77%] No install step for 'json-populate'
+[ 88%] No test step for 'json-populate'
+[100%] Completed 'json-populate'
+[100%] Built target json-populate
+-- Using the multi-header code from /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-src/include/
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build
+(base) ➜  build git:(bryce) ✗ make
+[  2%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o
+[  4%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o
+[  6%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o
+[  8%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o
+[ 11%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o
+[ 13%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o
+[ 15%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o
+[ 17%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o
+[ 20%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o
+[ 22%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o
+[ 24%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o
+[ 26%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o
+[ 28%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o
+[ 31%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o
+[ 33%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o
+[ 35%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o
+[ 37%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o
+[ 40%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o
+[ 42%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o
+[ 44%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o
+[ 46%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o
+[ 48%] Linking C static library libglfw3.a
+[ 48%] Built target glfw
+[ 51%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rcore.c.o
+[ 53%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rmodels.c.o
+[ 55%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rshapes.c.o
+[ 57%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtext.c.o
+[ 60%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.o
+[ 62%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.o
+[ 64%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.o
+/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-src/src/raudio.c:1290:45: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+        qoaplay_desc *ctxQoa = qoaplay_open(fileName);
+                                            ^~~~~~~~
+/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-src/src/external/qoaplay.c:86:34: note: passing argument to parameter 'path' here
+qoaplay_desc *qoaplay_open(char *path)
+                                 ^
+1 warning generated.
+[ 66%] Linking C static library libraylib.a
+[ 66%] Built target raylib
+[ 68%] Building CXX object CMakeFiles/Savages-Online.dir/src/API/api.cpp.o
+[ 71%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Component/Button/Button.cpp.o
+[ 73%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Component/PopUpMenu/PopUpMenu.cpp.o
+[ 75%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Entity/Player/Player.cpp.o
+[ 77%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Game.cpp.o
+[ 80%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Map/Map.cpp.o
+[ 82%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/CreditsScreen/CreditsScreen.cpp.o
+[ 84%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/InGameScreen/InGameScreen.cpp.o
+[ 86%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/LoadingScreen/LoadingScreen.cpp.o
+[ 88%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/LoginScreen/LoginScreen.cpp.o
+[ 91%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/MainMenuScreen/MainMenuScreen.cpp.o
+[ 93%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/RegisterScreen/RegisterScreen.cpp.o
+[ 95%] Building CXX object CMakeFiles/Savages-Online.dir/src/Game/Screen/Screen.cpp.o
+[ 97%] Building CXX object CMakeFiles/Savages-Online.dir/src/main.cpp.o
+[100%] Linking CXX executable Savages-Online
+[100%] Built target Savages-Online

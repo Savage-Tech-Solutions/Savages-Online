@@ -97,6 +97,11 @@ class Game {
         int loadingCounter;          // Loading Screen Counter
         int registerSuccessCounter;  // Counter for showing registration success on login menu for a brief period of time.
         bool isRegisterSuccess;      // Boolean for showing registration success on login menu.
+
+        Camera2D CameraPosition;      // Varaible used to create/know where the camera following the player is always at.
+        float CameraX;;               // Variable for the following players camera x location.
+        float CameraY;                // Variable for the following players camera x location.
+
 };
 
 #endif /* Game_hpp */

@@ -19,14 +19,15 @@ InGameScreen::InGameScreen() {
  * Destructor
 *******************************************************/
 InGameScreen::~InGameScreen() {
-}
+  
+};
 
 /*******************************************************
  * DrawScreen() function will draw the credits screen
  ******************************************************/
 void InGameScreen::DrawScreen() {
     InGameDisplay();
-    // InGameLogic();
+    InGameLogic();
 };
 
 /*******************************************************
@@ -35,7 +36,9 @@ void InGameScreen::DrawScreen() {
  * houses, etc.
  ******************************************************/
 void InGameScreen::DrawFrontMap() {
-    ClearBackground(BLUE);
+     Texture2D backgroundTexture = LoadTexture("../resources/Maps/Main-Town/v1/Main-Town.png");
+    this->frontMapTexture = backgroundTexture;
+    DrawTexture(this->frontMapTexture, 0, 0, WHITE);
 };
 
 /*******************************************************
@@ -44,7 +47,7 @@ void InGameScreen::DrawFrontMap() {
  * houses, ground textures, etc.
  ******************************************************/
 void InGameScreen::DrawBackMap() {
-    ClearBackground(GREEN);
+    // TODO: Implement this function
 };
 
 /*******************************************************
@@ -52,7 +55,7 @@ void InGameScreen::DrawBackMap() {
  * this specific class.
  ******************************************************/
 void InGameScreen::InGameLogic() {
-    std::cout << "InGameLogic() function being called..." << std::endl;
+    // TODO: Implement this function
 };
 
 /*******************************************************

@@ -15,6 +15,7 @@
 
 // User Libraries
 #include "../Screen.hpp"
+#include "../../Component/Button/Button.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---

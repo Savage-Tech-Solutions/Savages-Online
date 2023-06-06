@@ -41,19 +41,6 @@ class Screen {
         *************************************************/
         virtual void DrawScreen() = 0; // IMPLEMENTATION is in all classes derived from the Screen.cpp
 
-    //     /*************************************************
-    //     * Pure Virtual DrawScreen() class function. This
-    //     * function is expected to be defined in the
-    //     * derived class.
-    //     *************************************************/
-    //     virtual void DrawFrontMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp ONLY!!!
-
-    //     /*************************************************
-    //     * Pure Virtual DrawScreen() class function. This
-    //     * function is expected to be defined in the
-    //     * derived class.
-    //     ************************************************/
-    //    virtual void DrawBackMap() = 0; // IMPLEMENTATION is in InGameScreen.cpp
     protected:
 
         /*************************************************
