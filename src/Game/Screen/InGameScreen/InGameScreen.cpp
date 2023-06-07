@@ -64,6 +64,7 @@ void InGameScreen::InGameLogic() {
  ******************************************************/
 void InGameScreen::InGameDisplay() {
     this->DrawBackMap();
+    
     this->DrawFrontMap();
     DrawTexture(this->getBackgroundTexture(), 0, 0, WHITE);
 };
