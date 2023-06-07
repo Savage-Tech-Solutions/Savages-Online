@@ -53,7 +53,7 @@ FetchContent_GetProperties(CURL)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
-file(GLOB_RECURSE CPP_SOURCES src/*.cpp)
+file(GLOB_RECURSE CPP_SOURCES src/*.cpp src/API/*.cpp src/Game/*.cpp src/Game/Component/**/*.cpp src/Game/Entity/**/*.cpp src/Game/Map/*.cpp src/Game/Screen/*.cpp src/Game/Screen/**/*.cpp)
 
 add_executable(${PROJECT_NAME} ${CPP_SOURCES})
 

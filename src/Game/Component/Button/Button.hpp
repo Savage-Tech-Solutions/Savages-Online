@@ -6,7 +6,7 @@
 #include <string>
 
 // User Libraries
-#include "../Screen.hpp"
+#include "../../Screen/Screen.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---

@@ -18,7 +18,7 @@ using std::vector;
 
 // User Libraries
 #include "../Screen.hpp"
-#include "../ButtonComponent/Button.hpp"
+#include "../../Component/Button/Button.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---

@@ -5,8 +5,8 @@
  * DESCRIPTION : // TODO:: Finish Documentation
  **************************************************************/
 
-#ifndef INGAME_SCREEN_HPP
-#define INGAME_SCREEN_HPP
+#ifndef InGameScreen_hpp
+#define InGameScreen_hpp
 
 // System Libraries
 #include <iostream>
@@ -14,6 +14,7 @@
 
 // User Libraries
 #include "../Screen.hpp"
+#include "../../Component/Button/Button.hpp"
 
 // External Libraries
 // ---included in Screen.hpp---
@@ -34,25 +35,25 @@ class InGameScreen : protected Screen {
         /***********************************
          * Implementing pure virtual function
          ***********************************/
-        void DrawScreen(); // Implementing 1 of 3 virtual functions from Screen.hpp
+        void DrawScreen();
 
         /***********************************
-         * 
+         * TODO: Finish Documentation
         ***********************************/
-        void DrawFrontMap(); // TODO: Implement this function
+        void DrawFrontMap(); 
 
         /***********************************
-         *
+         * TODO: Finish Documentation
          ***********************************/
         void DrawBackMap();  // TODO: Implement this function
 
         /***********************************
-         *
+         * TODO: Finish Documentation
          ***********************************/
         void InGameLogic();  // TODO: Implement this function
 
         /***********************************
-         *
+         * TODO: Finish Documentation
          ***********************************/
         void InGameDisplay(); // TODO: Implement this function
 
@@ -60,7 +61,7 @@ class InGameScreen : protected Screen {
         // N/A
 
     private:
-        // N/A
+        Texture2D frontMapTexture;
 
 };
 
