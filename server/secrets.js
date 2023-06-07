@@ -1,0 +1,3 @@
+const DatabaseURL = "mongodb://localhost:27017/Savages-Online"; // Change to actual MONGODB URL later...
+
+exports.DatabaseURL = DatabaseURL;

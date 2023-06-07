@@ -1,4 +1,4 @@
 .vscode
 build/
 server/node_modules/
-server/secrets.js
+#server/secrets.js
