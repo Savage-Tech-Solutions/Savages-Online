@@ -1,11 +1,8 @@
 /* ************************************************************
- * PROGRAMMER  : Bryce Berwald
+ * PROGRAMMER  : // TODO: Finish Documentation
  * PROJECT     : Savages-Online
  * VERSION     : 0.0.1
- * DESCRIPTION : A multiplayer RPG game created with C++ and
- * a gaming library called "raylib". This game is being built to
- * help my overall understanding of the C++ programming language,
- * and for my own fun along the way.
+ * DESCRIPTION : // TODO: Finish Documentation
  **************************************************************/
 
 #include "Player.hpp"
@@ -42,6 +39,8 @@ Player::Player(){
 
     this->totalBlockedLocations = 0;
 
+    this->BlockedLocations = new Rectangle[this->totalBlockedLocations];
+
     this->PlayerSurroundingRec = {(float)PlayerX+24, (float)PlayerY+16, 14, 28};
 }
 
@@ -51,7 +50,10 @@ Player::Player(){
  * will get called when the Player class goes out of scope.
  *************************************************************/
 Player::~Player(){
-
+    UnloadTexture(HumanSpriteSheet);
+    UnloadTexture(DemonSpriteSheet);
+    UnloadTexture(CurrentSpriteSheet);
+    delete [] BlockedLocations;
 }
 
 

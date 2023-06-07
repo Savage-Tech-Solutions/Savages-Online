@@ -8,13 +8,14 @@
 #ifndef Player_hpp
 #define Player_hpp
 
-#define TOTAL_BLOCKED_LOCATIONS 50
-
-//#include "Map.h"
+// System Libraries
 #include <iostream>
 #include <string>
 #include <vector>
 #include <sstream>
+
+// User Libraries
+//#include "Map.h"
 
 // External Libraries
 #include "raylib.h"
@@ -33,6 +34,7 @@ S parseData(const std::string& s){
   return out;
 }
 
+int TOTAL_BLOCKED_LOCATIONS = 625;
 
 /*************************************************
 * Class Player
@@ -252,8 +254,8 @@ class Player {
         float CameraY;              // Variable used to store the Camera Y coordinate location 
         Camera2D CameraPosition;    // Variable used to store the Camera2D Camera object as a whole.
 
-        Rectangle BlockedLocations[TOTAL_BLOCKED_LOCATIONS];   // Array holds ALL locations on CURRENT map that are blocked for player.
-        int totalBlockedLocations;                             // Total number of blocked locations on current map.
+        Rectangle *BlockedLocations;   // Array holds ALL locations on CURRENT map that are blocked for player.
+        int totalBlockedLocations;     // Total number of blocked locations on current map.
 
         string UsernameLoggedIn;    // Variable used for storing username currently logged in game client.
 };
