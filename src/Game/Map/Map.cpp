@@ -7,42 +7,57 @@
 
 #include "Map.hpp"
 
-/*************************************************************
- * This is the default constructor function for the map class.
- * This function will initialize all the attributes needed for
- * the map object to be initialized. 
- *************************************************************/
+/********************************
+ * Default Constructor
+ *******************************/
 Map::Map() {
-    this->MainTown = LoadTexture("resources/Maps/Main-Town/v1/Main-Town.png");
-    this->NorthMainTown = LoadTexture("resources/Maps/Main-Town/v1/North-Main-Town.png");
-    this->CurrentMapTexture = MainTown;
-    this->CurrentBounds = MAIN_TOWN;
+    this->mainTown = LoadTexture("resources/Maps/Main-Town/v2/Main-Town.png");
+    this->northMainTown = LoadTexture("resources/Maps/Main-Town/v1/North-Main-Town.png");
+    this->currentMapTexture = mainTown;
 
-    this->LoadMapProperties = true;
-    this->inputFileName = "resources/Maps/Main-Town/v1/Main-Town.txt";
-    this->binaryDigit = 0;
+    this->currentBounds = MAIN_TOWN;
+    
+    this->inputFileName = "../../../resources/Maps/Main-Town/v2/Main-Town.txt";
 
-    this->totalBlockedLocations = 0;
+    this->loadMapProperties = true;
 
-}
+    this->binaryDigit = -1;
+
+    this->mapRowSize = 25;
+    this->mapColSize = 25;
+    
+    this->tileSize = 32;
+
+    this->mapWidth = this->mapRowSize * this->tileSize;  // 800 Pixels
+    this->mapHeight = this->mapColSize * this->tileSize; // 800 Pixels
+
+    this->totalBlockedLocations =  this->tileSize * this->tileSize;  // 625 pixels
+
+    // this->mapArray = new int[this->totalBlockedLocations];
+    
+    // this->currenMapArray = new int[this->mapRowSize][this->mapColSize];
+    
+    // this->blockedLocations = new Rectangle[this->mapRowSize][this->mapColSize];
+
+    this->mapArray = new int*[this->totalBlockedLocations];
+
+    
 
 
-/*************************************************************
- * This is the destructor class function for the map class.
- * This function will get called when the map object goes out
- * of scope.
- *************************************************************/
+
+};
+
+
+/******************************
+ * 
+ ****************************/
 Map::~Map(){
 
-}
+};
 
-
-/*************************************************************
- * This is a helper function for reading in blocked locations
- * from an input file. The function will check to ensure that 
- * all ones and zeros have been read from the file and nothing
- * else. A negative 1 will be returned otherwise.
- *************************************************************/
+/******************************
+ * 
+ ****************************/
 int Map::LocationsFromFile(int binaryDigit){
     int result;
     if(binaryDigit == 0 || binaryDigit == 1){
@@ -51,59 +66,52 @@ int Map::LocationsFromFile(int binaryDigit){
         result = -1;
     }
     return result;
-}
+};
 
 
-/*************************************************************
- * This is the Map class function for loading the current maps
- * properties. This function will read from an input file for
- * the current map a bunch of 1s and 0s. 1s are for blocked 
- * locations and 0s are for free'd locations. After the integer
- * array has been read-in, A Rectangle type array will be 
- * created using the numbers from the file and multiples of 32
- * since 32x32 is each pixel tile size. Afterward the 
- * LoadMapProperties boolean will be set to false. This function
- * is of type void and does not return anything.
- *************************************************************/
+/******************************
+ * 
+ ****************************/
 void Map::LoadMapPropertiesForCurrentMap(){
     
-    if(LoadMapProperties) {
+    if(loadMapProperties) {
         // Save Binary Locations to integer array to be used later for creating blocked locations of rec type.
         ifstream inFile;
         inFile.open(inputFileName);
         int rowCounter = 0;
         if (inFile.is_open()) {
             while (inFile) {
-                for(int i = 0; i < COL_SIZE; i++){
+                for(int i = 0; i < mapColSize; i++){
                     inFile >> binaryDigit;
-                    GameMapArray[rowCounter][i] = LocationsFromFile(binaryDigit);
+                    **currentMapArray[rowCounter][i] = LocationsFromFile(binaryDigit);
                 }
                 rowCounter++;
             }
         }
         
         // Display multi-dimensional array to the console for debugging purposes.
-        for (int i = 0; i < ROW_SIZE; i++) {
-            for (int k = 0; k < COL_SIZE; k++) {
-                std::cout << GameMapArray[i][k];
+        for (int i = 0; i < this->mapRowSize; i++) {
+            for (int k = 0; k < mapColSize; k++) {
+                std::cout << *currentMapArray[i][k];
             }
             std::cout << std::endl;
         }
 
         int recPositionX = 0;
         int recPositionY = 0;
+
         // Draw blocked locations for the current map.
-        for (int i = 0; i < ROW_SIZE; i++) {
-            for (int k = 0; k < COL_SIZE; k++) {
-                if(GameMapArray[i][k] == 1){
+        for (int i = 0; i < this->mapRowSize; i++) {
+            for (int k = 0; k < this->mapColSize; k++) {
+                if(*GameMapArray[i][k] == 1){
                     //DrawRectangle(recPositionX, recPositionY, 32, 32, RED);
-                    BlockedLocations[totalBlockedLocations] = {(float)recPositionX, (float)recPositionY, 32, 32};
+                    this->*blockedLocations = {(float)recPositionX, (float)recPositionY, 32, 32};
                     totalBlockedLocations++;
                 }
-                recPositionX += 32;
+                recPositionX += this->mapTileWidth;
             }
             recPositionX = 0;
-            recPositionY += 32;
+            recPositionY += this->tileSize;
             
         }
         // Set to false to only load once.
@@ -121,12 +129,22 @@ void Map::LoadMapPropertiesForCurrentMap(){
 void Map::DrawCurrentMap(){
 
     // Call function to load properties for current map.
+    setInputFileName("../../../resources/Maps/Main-Town/v2/Main-Town.txt");
     LoadMapPropertiesForCurrentMap();
-
     // Draw Current map to the screen.
-    DrawTexture(this->CurrentMapTexture, 0, 0, WHITE);
+    this->currentMapTexture = mainTown;
+    this->currentBounds = MAIN_TOWN;
+    DrawTexture(this->currentMapTexture, 0, 0, WHITE);
+    
+    // Draw Player here...
 
-}
+    setInputFileName("../../../resources/Maps/North-Main-Town/v1/North-Main-Town.txt");
+    LoadMapPropertiesForCurrentMap();
+    this->currentMapTexture = northMainTown;
+    this->currentBounds = NORTH_MAIN_TOWN;
+    // DrawTexture(this->currentMapTexture, 0, 0, WHITE);
+    ClearBackground(GREEN);
+};
 
 
 /*************************************************************
@@ -136,7 +154,8 @@ void Map::DrawCurrentMap(){
  * the players collision against the spots not allowed.
  *************************************************************/
 Rectangle Map::getBlockedLocation(int index){
-    return this->BlockedLocations[index];
+
+    return blockedLocations[index].mapLocationsRec;
 }
 
 
@@ -145,7 +164,7 @@ Rectangle Map::getBlockedLocation(int index){
  * of blocked locations on the current map. This function is
  * of type integer and will return the same data type.
  *************************************************************/
-int Map::getTotalBlockedLocations()const{
+int Map::getTotalBlockedLocations(){
     return this->totalBlockedLocations;
 }
 
@@ -157,8 +176,8 @@ int Map::getTotalBlockedLocations()const{
  * is of type MapBoundary and the current map boundary will
  * be returned.
  *************************************************************/
-MapBoundary Map::getMapBoundary()const{
-    return this->CurrentBounds;
+MapBoundary Map::getMapBoundary(){
+    return this->currentBounds;
 }
 
 
@@ -169,7 +188,7 @@ MapBoundary Map::getMapBoundary()const{
  * boundary.
  *************************************************************/
 void Map::setMapBoundary(MapBoundary boundary){
-    this->CurrentBounds = boundary;
+    this->currentBounds = boundary;
 }
 
 
@@ -183,10 +202,15 @@ void Map::setMapBoundary(MapBoundary boundary){
  * and does not return anything.
  *************************************************************/
 void Map::setCurrentMap(string mapName){
-    if(mapName == "MainTown"){
-        this->CurrentMapTexture = MainTown;
-    } else if(mapName == "NorthMainTown"){
-        this->CurrentMapTexture = NorthMainTown;
+    if(mapName == "mainTown"){
+        this->currentMapTexture = mainTown;
+        this->currentBounds = MAIN_TOWN;
+    } else if(mapName == "northMainTown"){
+        this->currentMapTexture = northMainTown;
+        this->currentBounds = NORTH_MAIN_TOWN;
+    } else {
+        this->currentBounds = NONE;
+        cout << "\nSomething went wrong with setting the current map." << endl;
     }
 }
 
@@ -198,7 +222,7 @@ void Map::setCurrentMap(string mapName){
  * This function is of type void and does not return anything.
  *************************************************************/
 void Map::TurnLoadMapPropertiesOn(){
-    this->LoadMapProperties = true;
+    this->loadMapProperties = true;
 }
 
 

@@ -5,18 +5,28 @@
  * DESCRIPTION : // TODO: Finish Documentation
  **************************************************************/
 
-#ifndef MAP_H
-#define MAP_H
+#ifndef map_hpp
+#define map_hpp
 
 // System Libraries
 #include <iostream>
 #include <fstream>
+//#include <ifstream>
+//#include <ofstream>
 #include <string>
+#include <vector>
 using std::fstream;
 using std::string;
-using namespace std;
+using std::vector;
+using std::cout;
+using std::endl;
+using std::cin;
+// using std::ifstream;
+// using std::ofstream;
+using std::fstream;
 
 // User Libraries
+#include "../Entity/Player/Player.hpp"   // NEW INCLUDE ADDED! (06/11/23)
 
 // External Libraries
 #include "raylib.h"
@@ -28,133 +38,119 @@ enum MapBoundary {
     NORTH_MAIN_TOWN,
 };
 
-const int ROW_SIZE = 25;                  // CONST - Used to set the row size of the game map array.
-const int COL_SIZE = 25;                  // CONST - Used to set the column size of the game map array.
-const int TOTAL_BLOCKED_LOCATIONS = 625;  // CONST - Used to set the total number of blocked locations on the map.
 
-/*************************************************
+/********************************/
+struct MapLocation {
+    int x;
+    int y;
+    int tileSize;
+    Rectangle mapLocationsRec = {x, y, tileSize, tileSize};
+    bool isBlocked;
+};
+/********************************/
+
+
+/*************
 * Class Map
-*************************************************/
+*************/
 class Map {
     public:
-        /*************************************************
+        /**********************
         * Default Constructor
-        * No parameters
-        *************************************************/
+        **********************/
         Map();
 
-        /*************************************************
+        /***********************
         * Destructor
-        * No parameters
-        *************************************************/
+        ***********************/
         ~Map();
 
-        /*************************************************
-        * This is the Map class function for drawing the
-        * current map and all of its needed contents to 
-        * the screen and ready to be handled when certain
-        * events are triggered. This function is of type
-        * void and does not return anything.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         void DrawCurrentMap();
 
-        /*************************************************
-        * This is the Map class function for getting the
-        * blocked rectangle locations from the map to be
-        * sent to the player object from main to be used
-        * for collision detection against the player. This
-        * function is of type Rectangle and will return
-        * one index value at a time.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         Rectangle getBlockedLocation(int index);
 
-        /*************************************************
-        * This is the function for getting the total number
-        * of blocked locations on the current map. This
-        * function is read-only and will return type
-        * integer.
-        *************************************************/
-        int getTotalBlockedLocations()const;
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
+        int getTotalBlockedLocations();
 
-        /*************************************************
-        * This is the Map class function for getting the
-        * current maps boundary. This function is of type
-        * MapBoundary and the map current map boundary
-        * will be returned.
-        *************************************************/
-        MapBoundary getMapBoundary()const;
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
+        MapBoundary getMapBoundary();
 
-        /*************************************************
-        * This is the Map class function for setting the
-        * maps boundary. This function takes in one
-        * parameter which is of type MapBoundary to set 
-        * the current boundary.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         void setMapBoundary(MapBoundary boundary);
 
-        /*************************************************
-        * This is the Map class function for setting the
-        * current maps background texture. This function
-        * is needed upon game loading to load a new map
-        * texture if the player isn't on the default
-        * starting map anymore. This function uses a string
-        * passed as a parameter to determine when map
-        * texture to use as the current texture.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         void setCurrentMap(string mapName);
 
-        /*************************************************
-        * This is the Map class function for turning the
-        * loadMapProperties boolean to true to allow a
-        * map reload whenever the player has changed maps.
-        * This function is of type void and does not 
-        * return anything.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         void TurnLoadMapPropertiesOn();
 
-        /*************************************************
-        * This is the Map class function for setting the
-        * input file name for the current map. This 
-        * function should be called upon a map switch.
-        * This function is of type void and does not return
-        * anything.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         void setInputFileName(string FileName);
 
     private:
-        /*************************************************
-        * This is the PRIVATE Map class function for
-        * loading the current properties needed for the
-        * current game map. This function will be used
-        * within the Map object. This function is of type
-        * void and does not return anything.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         void LoadMapPropertiesForCurrentMap();
 
-        /*************************************************
-        * This is the PRIVATE class function for checking
-        * what the number read from the input file is. 
-        * The function will return the binary digit from
-        * the input file if the number is a 1 or 0. Zero
-        * is for a free'd location and the number One is
-        * for a Blocked Location. This function will return
-        * a negative 1 if any other value is received.
-        *************************************************/
+        /*********************************
+         * TODO: Finish Documentation
+        **********************************/
         int LocationsFromFile(int binaryDigit);
         
-        Texture2D MainTown;             // Image/Texture for the map pertaining to Main Village.
-        Texture2D NorthMainTown;        // Image/Texture for the map pertaining to Main Village North.
-        Texture2D CurrentMapTexture;    // Image/Texture for current map.
+        /*********************************
+         * ALL MAP CLASS PRIVATE VARIABLES
+        **********************************/
+        Texture2D mainTown;             // Texture for the map pertaining to Main Town.
+        Texture2D northMainTown;        // Texture for the map pertaining to North Main Town.
+        Texture2D currentMapTexture;    // Image/Texture for current map.
+        MapBoundary currentBounds;      // Used to determine what map is drawn to screen currently.
+        
+        string inputFileName;           // Used to set the input file name for the current map.
+        
+        bool loadMapProperties;         // Used to determine if the map properties should be loaded.
+        
+        int binaryDigit;                // Used to determine if the location is blocked or not. (0 = not blocked, 1 = blocked) from text file.
+        
+        int mapRowSize;  // 800 (25x32) or (rowSize *tileSize) for Main Town Map.
+        int mapColSize;  // 800 (25x32) or (colSize *tileSize) for Main Town Map.
+        
+        int tileSize;
 
-        MapBoundary CurrentBounds;      // Used to determine what is drawn to screen currently.
+        int mapWidth;
+        int mapHeight;
 
-        string inputFileName;           // Variable used interchangeably for inputting map data from a file.
-        bool LoadMapProperties;         // Variable used to determine whether to load map properties (ONCE per map).
-        int binaryDigit;                // Variable used as an aide in checking if the proper number is read-in.
+        int totalBlockedLocations;
 
-        int GameMapArray[ROW_SIZE][COL_SIZE];                 // Array of type integer, storing 1's and 0's from input file.
-        Rectangle BlockedLocations[TOTAL_BLOCKED_LOCATIONS];  // Rectangle array holding blocked locations from using integer game array.
-        int totalBlockedLocations;                            // Total number of blocked locations for current map.
+        // int *mapArray;
+        // int *currentMapArray;
+        // Rectangle *blockedLocations;
+        
+        vector<int>mapArray;
+        vector<int> currentMapArray;
+        vector<MapLocation> blockedLocations;
+
+
+        
+
 };
 
 #endif
