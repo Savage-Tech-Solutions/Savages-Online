@@ -2,3 +2,4 @@
 build/
 server/node_modules/
 #server/secrets.js
+.git/gc.log
