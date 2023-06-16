@@ -1,4 +1,8 @@
-(base) ➜  Savages-Online git:(bryce) mkdir build && cd build && cmake .. -Wno-dev                                                
+(base) ➜  Savages-Online git:(berz) git status
+On branch berz
+nothing to commit, working tree clean
+
+(base) ➜  Savages-Online git:(berz) mkdir build && cd build && cmake .. -Wno-dev
 -- The C compiler identification is AppleClang 14.0.0.14000029
 -- The CXX compiler identification is AppleClang 14.0.0.14000029
 -- Detecting C compiler ABI info
@@ -14,18 +18,18 @@
 -- Populating raylib
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/raylib-subbuild
+-- Build files have been written to: /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-subbuild
 [ 12%] Creating directories for 'raylib-populate'
 [ 25%] Performing download step (download, verify and extract) for 'raylib-populate'
 -- Downloading...
-   dst='/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/raylib-subbuild/raylib-populate-prefix/src/4.5.0.tar.gz'
+   dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-subbuild/raylib-populate-prefix/src/4.5.0.tar.gz'
    timeout='none'
    inactivity timeout='none'
 -- Using src='https://github.com/raysan5/raylib/archive/refs/tags/4.5.0.tar.gz'
 -- Downloading... done
 -- extracting...
-     src='/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/raylib-subbuild/raylib-populate-prefix/src/4.5.0.tar.gz'
-     dst='/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/raylib-src'
+     src='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-subbuild/raylib-populate-prefix/src/4.5.0.tar.gz'
+     dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-src'
 -- extracting... [tar xfz]
 -- extracting... [analysis]
 -- extracting... [rename]
@@ -60,24 +64,45 @@
 -- Populating json
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/json-subbuild
+-- Build files have been written to: /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-subbuild
 [ 11%] Creating directories for 'json-populate'
 [ 22%] Performing download step (download, verify and extract) for 'json-populate'
 -- Downloading...
-   dst='/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/json-subbuild/json-populate-prefix/src/json.tar.xz'
+   dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-subbuild/json-populate-prefix/src/json.tar.xz'
    timeout='none'
    inactivity timeout='none'
 -- Using src='https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz'
--- [download 15% complete]
--- [download 19% complete]
+-- [download 0% complete]
+-- [download 7% complete]
+-- [download 11% complete]
+-- [download 14% complete]
+-- [download 17% complete]
+-- [download 18% complete]
 -- [download 22% complete]
--- [download 35% complete]
--- [download 75% complete]
+-- [download 27% complete]
+-- [download 30% complete]
+-- [download 34% complete]
+-- [download 36% complete]
+-- [download 40% complete]
+-- [download 42% complete]
+-- [download 44% complete]
+-- [download 47% complete]
+-- [download 48% complete]
+-- [download 50% complete]
+-- [download 53% complete]
+-- [download 54% complete]
+-- [download 55% complete]
+-- [download 56% complete]
+-- [download 59% complete]
+-- [download 60% complete]
+-- [download 61% complete]
+-- [download 76% complete]
+-- [download 91% complete]
 -- [download 100% complete]
 -- Downloading... done
 -- extracting...
-     src='/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/json-subbuild/json-populate-prefix/src/json.tar.xz'
-     dst='/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/json-src'
+     src='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-subbuild/json-populate-prefix/src/json.tar.xz'
+     dst='/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-src'
 -- extracting... [tar xfz]
 -- extracting... [analysis]
 -- extracting... [rename]
@@ -91,11 +116,13 @@
 [ 88%] No test step for 'json-populate'
 [100%] Completed 'json-populate'
 [100%] Built target json-populate
--- Using the multi-header code from /Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/json-src/include/
+-- Using the multi-header code from /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/json-src/include/
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build
-(base) ➜  build git:(bryce) make
+-- Build files have been written to: /Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build
+
+(base) ➜  build git:(berz) make
+
 [  2%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o
 [  4%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o
 [  6%] Building C object _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o
@@ -126,10 +153,10 @@
 [ 60%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/rtextures.c.o
 [ 62%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/utils.c.o
 [ 64%] Building C object _deps/raylib-build/raylib/CMakeFiles/raylib.dir/raudio.c.o
-/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/raylib-src/src/raudio.c:1290:45: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-src/src/raudio.c:1290:45: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
         qoaplay_desc *ctxQoa = qoaplay_open(fileName);
                                             ^~~~~~~~
-/Volumes/Bryces HD/Coding/1. PROJECTS/Savage-Tech-Solutions/Savages-Online/build/_deps/raylib-src/src/external/qoaplay.c:86:34: note: passing argument to parameter 'path' here
+/Users/bryceberwald/Desktop/Savage-Tech-Solutions/Savages/Savages-Online/build/_deps/raylib-src/src/external/qoaplay.c:86:34: note: passing argument to parameter 'path' here
 qoaplay_desc *qoaplay_open(char *path)
                                  ^
 1 warning generated.
@@ -151,16 +178,4 @@ qoaplay_desc *qoaplay_open(char *path)
 [ 97%] Building CXX object CMakeFiles/Savages-Online.dir/src/main.cpp.o
 [100%] Linking CXX executable Savages-Online
 [100%] Built target Savages-Online
-(base) ➜  build git:(bryce) make
-Consolidate compiler generated dependencies of target glfw
-[ 48%] Built target glfw
-Consolidate compiler generated dependencies of target raylib
-[ 66%] Built target raylib
-Consolidate compiler generated dependencies of target Savages-Online
-[100%] Built target Savages-Online
-(base) ➜  build git:(bryce) git status
-On branch bryce
-Your branch is up to date with 'origin/bryce'.
-
-nothing to commit, working tree clean
-(base) ➜  build git:(bryce) 
+(base) ➜  build git:(berz) 
