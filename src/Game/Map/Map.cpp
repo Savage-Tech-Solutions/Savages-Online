@@ -12,37 +12,18 @@
  *******************************/
 Map::Map() {
     this->mainTown = LoadTexture("resources/Maps/Main-Town/v2/Main-Town.png");
-    this->northMainTown = LoadTexture("resources/Maps/Main-Town/v1/North-Main-Town.png");
+    this->northMainTown = LoadTexture("../../../resources/Maps/");
     this->currentMapTexture = mainTown;
 
     this->currentBounds = MAIN_TOWN;
-    
     this->inputFileName = "../../../resources/Maps/Main-Town/v2/Main-Town.txt";
-
     this->loadMapProperties = true;
-
     this->binaryDigit = -1;
-
     this->mapRowSize = 25;
     this->mapColSize = 25;
-    
     this->tileSize = 32;
 
-    this->mapWidth = this->mapRowSize * this->tileSize;  // 800 Pixels
-    this->mapHeight = this->mapColSize * this->tileSize; // 800 Pixels
-
-    this->totalBlockedLocations =  this->tileSize * this->tileSize;  // 625 pixels
-
-    // this->mapArray = new int[this->totalBlockedLocations];
-    
-    // this->currenMapArray = new int[this->mapRowSize][this->mapColSize];
-    
-    // this->blockedLocations = new Rectangle[this->mapRowSize][this->mapColSize];
-
-    this->mapArray = new int*[this->totalBlockedLocations];
-
-    
-
+    this->mapLocation = new MapLocation;
 
 
 };
@@ -52,7 +33,9 @@ Map::Map() {
  * 
  ****************************/
 Map::~Map(){
-
+    UnloadTexture(this->mainTown);
+    UnloadTexture(this->northMainTown);
+    delete this->mapLocation;
 };
 
 /******************************
@@ -76,7 +59,7 @@ void Map::LoadMapPropertiesForCurrentMap(){
     
     if(loadMapProperties) {
         // Save Binary Locations to integer array to be used later for creating blocked locations of rec type.
-        ifstream inFile;
+        fstream::ifstream inFile;
         inFile.open(inputFileName);
         int rowCounter = 0;
         if (inFile.is_open()) {

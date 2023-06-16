@@ -11,8 +11,8 @@
 // System Libraries
 #include <iostream>
 #include <fstream>
-//#include <ifstream>
-//#include <ofstream>
+#include <ifstream>
+#include <ofstream>
 #include <string>
 #include <vector>
 using std::fstream;
@@ -21,9 +21,8 @@ using std::vector;
 using std::cout;
 using std::endl;
 using std::cin;
-// using std::ifstream;
-// using std::ofstream;
-using std::fstream;
+using std::ofstream;
+using std::ifstream;
 
 // User Libraries
 #include "../Entity/Player/Player.hpp"   // NEW INCLUDE ADDED! (06/11/23)
@@ -135,18 +134,9 @@ class Map {
         
         int tileSize;
 
-        int mapWidth;
-        int mapHeight;
-
-        int totalBlockedLocations;
-
-        // int *mapArray;
-        // int *currentMapArray;
-        // Rectangle *blockedLocations;
+        MapLocation *mapLocation;
         
-        vector<int>mapArray;
-        vector<int> currentMapArray;
-        vector<MapLocation> blockedLocations;
+
 
 
         
